@@ -1,14 +1,25 @@
-h2 {
-    color: aliceblue;
-    text-align: center;
-    margin-top: 8%;
-    font-size: 5vh;
-    font-family: cursive;
+.homeDiv {
+    background-color: #2774AE;
+    width: fit-content;
+    margin: auto;
+    border-radius: 1rem;
+    opacity: 0.9;
+    /* margin-top: 1%; */
+    box-shadow: 5px 5px 8px 12px #72A0C1;
 }
 
-p {
+.homeH2 {
+    color: aliceblue;
+    text-align: center;
+    font-size: 5vh;
+    font-family: cursive;
+    padding: 2% 2% 0% 2%;
+}
+
+.homeP {
     color: aliceblue;
     text-align: center;
     font-size: 2.5vh;
     font-family: cursive;
+    padding: 0% 1% 2% 1%;
 }
