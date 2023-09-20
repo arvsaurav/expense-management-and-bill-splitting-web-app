@@ -1,0 +1,17 @@
+ul {
+    background-color: rgb(62, 62, 171);
+    height: 60px;
+    border-radius: 1rem;
+}
+
+li {
+    display: inline;
+    float: right;
+    padding: 18px 20px 18px 0px;
+    margin: 2px;
+    color: aliceblue;
+}
+
+li:hover {
+    transform: scale(1.2);
+}
