@@ -1,26 +1,34 @@
 import { useState } from 'react';
 import './Login.css';
 
-function Login() {
+function Register() {
 
+    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const resetForm = () => {
+        setName('');
         setEmail('');
         setPassword('');
     }
 
-    const loginUser = (event) => {
+    const registerUser = (event) => {
         event.preventDefault();
-        alert("Login successful.");
+        alert("Registration successful.");
         resetForm();
     }
 
     return (
-        <div className='loginDiv'>
-            <h2>Login</h2>
-            <form className='loginForm' onSubmit={loginUser}>
+        <div className='registerDiv'>
+            <h2>Register</h2>
+            <form className='registerForm' onSubmit={registerUser}>
+                <label id='nameLabel'>
+                    Name
+                    <br/>
+                    <input name='name' type='text' placeholder='Enter your name' required value={name} onChange={(event) => {setName(event.target.value)}}/>
+                </label>
+                <br/>
                 <label id='emailLabel'>
                     Email
                     <br/>
@@ -33,11 +41,10 @@ function Login() {
                     <input name='password' type='password' placeholder='Enter your password' required value={password} onChange={(event) => {setPassword(event.target.value)}}/>
                 </label>
                 <br/>
-                <input name='submit' type='submit' value='Login' />
+                <input name='submit' type='submit' value='Register'/>
             </form>
         </div>
     );
-
 }
 
-export default Login;
+export default Register;

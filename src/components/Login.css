@@ -1,0 +1,25 @@
+.loginDiv, .registerDiv {
+    margin: auto;
+    width: fit-content;
+    font-family: cursive;
+    padding: 2%;
+    margin-top: 70px;
+    border-radius: 1rem;
+    color: white;
+    opacity: 0.9;
+    text-align: center;
+    background-color: #2774AE;
+    box-shadow: 5px 5px 8px 12px #72A0C1;
+}
+
+.loginForm input, .registerForm input {
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    width: 30vw;
+}
+
+#emailLabel, #passwordLabel, #nameLabel {
+    display: inline-block;
+    text-align: left;
+}

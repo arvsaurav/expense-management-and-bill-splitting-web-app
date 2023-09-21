@@ -9,7 +9,11 @@
     float: right;
     padding: 18px 20px 18px 0px;
     margin: 2px;
+}
+
+.navLi a {
     color: white;
+    text-decoration: none;
 }
 
 .navLi:hover {
