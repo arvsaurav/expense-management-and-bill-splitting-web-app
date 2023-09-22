@@ -1,10 +1,30 @@
 import { useState } from 'react';
 import './Login.css';
+import axios from 'axios';
 
 function Login() {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    const url = "http://localhost:3001/users";
+
+    const validateCredentials = async () => {
+        await axios.get(url)
+            .then((res) => {
+                let isCredentialsValid = false;
+                res.data.forEach((user) => {
+                    if(user.id === email && user.password === password) {
+                        isCredentialsValid = true;
+                        return;
+                    }
+                });
+                isCredentialsValid ? alert("Login successful.") : alert("Invalid credentials.");
+            })
+            .catch(() => {
+                alert("Something went wrong.");
+            });
+    };
 
     const resetForm = () => {
         setEmail('');
@@ -13,7 +33,7 @@ function Login() {
 
     const loginUser = (event) => {
         event.preventDefault();
-        alert("Login successful.");
+        validateCredentials();
         resetForm();
     }
 

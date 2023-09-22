@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './Login.css';
+import axios from 'axios';
 
 function Register() {
 
@@ -7,22 +8,53 @@ function Register() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    const url = "http://localhost:3001/users";
+
+    const addUser = async () => {
+        await axios.post(url, {
+            id: email,
+            name: name,
+            password: password
+        }).then(() => {
+            alert("User registration successful.");
+        }).catch(() => {
+            alert("Something went wrong.");
+        });
+    };
+
+    const checkUserExistence = async () => {
+        await axios.get(url)
+            .then((res) => {
+                let doesUserExists = false;
+                res.data.forEach((user) => {
+                    if(user.id === email) {
+                        doesUserExists = true;
+                        return;
+                    }
+                });
+                !doesUserExists ? addUser() : alert("User already exists. Try using different email.");
+            })
+            .catch(() => {
+                alert("Something went wrong.");
+            });
+    };
+
     const resetForm = () => {
         setName('');
         setEmail('');
         setPassword('');
-    }
+    };
 
-    const registerUser = (event) => {
+    const userRegistration = (event) => {
         event.preventDefault();
-        alert("Registration successful.");
+        checkUserExistence();
         resetForm();
-    }
+    };
 
     return (
         <div className='registerDiv'>
             <h2>Register</h2>
-            <form className='registerForm' onSubmit={registerUser}>
+            <form className='registerForm' onSubmit={userRegistration}>
                 <label id='nameLabel'>
                     Name
                     <br/>
