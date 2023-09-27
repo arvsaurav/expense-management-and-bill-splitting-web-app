@@ -1,4 +1,4 @@
-.loginDiv, .registerDiv {
+.loginDiv, .registerDiv, .logoutDiv {
     margin: auto;
     width: fit-content;
     font-family: cursive;

@@ -16,6 +16,13 @@
     text-decoration: none;
 }
 
+.navLi p {
+    padding: 18px 20px 18px 0px;
+    margin: 2px;
+    display: inline;
+    color: white;
+}
+
 .navLi:hover {
     transform: scale(1.2);
 }

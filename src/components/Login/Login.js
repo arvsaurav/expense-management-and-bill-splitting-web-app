@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import './Login.css';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
-function Login() {
+function Login({setUserState}) {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
     const url = "http://localhost:3001/users";
 
@@ -16,10 +18,15 @@ function Login() {
                 res.data.forEach((user) => {
                     if(user.id === email && user.password === password) {
                         isCredentialsValid = true;
+                        setUserState({
+                            'doesUserLoggedIn': true,
+                            'email': email,
+                            'name': user.name
+                        });
                         return;
                     }
                 });
-                isCredentialsValid ? alert("Login successful.") : alert("Invalid credentials.");
+                isCredentialsValid ? navigate('/') : alert("Invalid credentials.");
             })
             .catch(() => {
                 alert("Something went wrong.");
