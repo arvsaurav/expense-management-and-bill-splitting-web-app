@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import "./AddFriend.css";
 
 function AddFriend() {
 
@@ -101,17 +102,17 @@ function AddFriend() {
     }
 
     return(
-        <div>
+        <div className="container">
             <h2>Add friend</h2>
             <form onSubmit={validateUserAndAddAsFriend}>
-                <label>
+                <label className="emailLabel">
                     Email
                     <br/>
                     <input name="email" type="email" placeholder="Enter your friend's email" required value={friendsEmail} onChange={(event) => {setFriendsEmail(event.target.value)}} />
                 </label>
                 <br/>
-                <input name="submit" type="submit" value="Add" />
-                <input type="button" value="Cancel" onClick={returnToLandingPage} />
+                <input className="button" name="submit" type="submit" value="Add" />
+                <input className="button" type="button" value="Cancel" onClick={returnToLandingPage} />
             </form>
         </div>
     );

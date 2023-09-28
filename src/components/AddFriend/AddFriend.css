@@ -1,7 +1,6 @@
 .container {
     margin: auto;
     width: fit-content;
-    min-width: 300px;
     font-family: cursive;
     padding: 2%;
     margin-top: 70px;
@@ -11,6 +10,19 @@
     text-align: center;
     background-color: #2774AE;
     box-shadow: 5px 5px 8px 12px #72A0C1;
+}
+
+.emailLabel {
+    display: inline-block;
+    text-align: left;
+}
+
+.emailLabel input {
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    width: 30vw;
+    min-width: 300px;
 }
 
 .button {
