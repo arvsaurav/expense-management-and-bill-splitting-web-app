@@ -3,12 +3,47 @@
     {
       "id": "arvsaurav@gmail.com",
       "name": "Saurav Kumar",
-      "password": "12345"
+      "password": "12345",
+      "friends": [
+        {
+          "friendName": "Animesh Kumar",
+          "friendEmail": "animesh@gmail.com"
+        },
+        {
+          "friendName": "Kittu",
+          "friendEmail": "kittu@gmail.com"
+        }
+      ]
     },
     {
       "id": "kittu@gmail.com",
       "name": "Kittu",
-      "password": "@123"
+      "password": "@123",
+      "friends": [
+        {
+          "friendName": "Saurav Kumar",
+          "friendEmail": "arvsaurav@gmail.com"
+        },
+        {
+          "friendName": "Animesh Kumar",
+          "friendEmail": "animesh@gmail.com"
+        }
+      ]
+    },
+    {
+      "id": "animesh@gmail.com",
+      "name": "Animesh Kumar",
+      "password": "12345",
+      "friends": [
+        {
+          "friendName": "Saurav Kumar",
+          "friendEmail": "arvsaurav@gmail.com"
+        },
+        {
+          "friendName": "Kittu",
+          "friendEmail": "kittu@gmail.com"
+        }
+      ]
     }
   ]
 }

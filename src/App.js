@@ -7,6 +7,8 @@ import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import Logout from "./components/Logout/Logout";
 import CustomNavbar from "./components/Navbar/CustomNavbar";
+import LoggedInUserLandingPage from "./components/LoggedInUserLandingPage/LoggedInUserLandingPage";
+import AddFriend from "./components/AddFriend/AddFriend";
 
 
 function App() {
@@ -14,7 +16,8 @@ function App() {
   const [userState, setUserState] = useState({
     'doesUserLoggedIn': false,
     'email': '',
-    'name': ''
+    'name': '',
+    'friends': []
   });
 
   useEffect(() => {
@@ -31,6 +34,8 @@ function App() {
             <Route path="login" element={<Login setUserState={setUserState} />}/>
             <Route path="register" Component={Register}/>
             <Route path="logout" element={<Logout userState={userState} setUserState={setUserState} />}/>
+            <Route path="landingpage" element={<LoggedInUserLandingPage userState={userState} />}/>
+            <Route path="addfriend" Component={AddFriend}/>
           </Routes>
         </BrowserRouter>
       </div>

@@ -19,14 +19,15 @@ function Login({setUserState}) {
                     if(user.id === email && user.password === password) {
                         isCredentialsValid = true;
                         setUserState({
-                            'doesUserLoggedIn': true,
-                            'email': email,
-                            'name': user.name
+                            doesUserLoggedIn: true,
+                            email: email,
+                            name: user.name,
+                            friends: user.friends
                         });
                         return;
                     }
                 });
-                isCredentialsValid ? navigate('/') : alert("Invalid credentials.");
+                isCredentialsValid ? navigate('/landingpage') : alert("Invalid credentials.");
             })
             .catch(() => {
                 alert("Something went wrong.");

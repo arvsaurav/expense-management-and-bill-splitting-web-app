@@ -6,9 +6,10 @@ function Logout({userState, setUserState}) {
     useEffect(() => {
         const logoutUser = () => {
             setUserState({
-                'doesUserLoggedIn': false,
-                'email': '',
-                'name': ''
+                doesUserLoggedIn: false,
+                email: '',
+                name: '',
+                friends: []
             });
         }
         if(userState.doesUserLoggedIn) {

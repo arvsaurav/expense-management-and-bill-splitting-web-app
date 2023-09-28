@@ -14,7 +14,8 @@ function Register() {
         await axios.post(url, {
             id: email,
             name: name,
-            password: password
+            password: password,
+            friends: []
         }).then(() => {
             alert("User registration successful.");
         }).catch(() => {
