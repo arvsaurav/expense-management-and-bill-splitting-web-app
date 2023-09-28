@@ -11,44 +11,44 @@ function Login({setUserState}) {
 
     const url = "http://localhost:3001/users";
 
-    const validateCredentials = async () => {
-        await axios.get(url)
-            .then((res) => {
-                let isCredentialsValid = false;
-                res.data.forEach((user) => {
-                    if(user.id === email && user.password === password) {
-                        isCredentialsValid = true;
-                        setUserState({
-                            doesUserLoggedIn: true,
-                            email: email,
-                            name: user.name,
-                            friends: user.friends
-                        });
-                        return;
-                    }
-                });
-                isCredentialsValid ? navigate('/landingpage') : alert("Invalid credentials.");
-            })
-            .catch(() => {
-                alert("Something went wrong.");
+    const validateAndLogin = async () => {
+        try {
+            const response = await axios.get(url);
+            let isCredentialsValid = false;
+            response.data.forEach((user) => {
+                if(user.id === email && user.password === password) {
+                    isCredentialsValid = true;
+                    setUserState({
+                        doesUserLoggedIn: true,
+                        email: email,
+                        name: user.name,
+                        friends: user.friends
+                    });
+                    return;
+                }
             });
-    };
+            isCredentialsValid ? navigate('/landingpage') : alert("Invalid credentials.");
+        }
+        catch {
+            alert("Something went wrong.");
+        }
+    }
 
     const resetForm = () => {
         setEmail('');
         setPassword('');
     }
 
-    const loginUser = (event) => {
+    const validateCredentialsAndLoginUser = async (event) => {
         event.preventDefault();
-        validateCredentials();
+        await validateAndLogin();
         resetForm();
     }
 
     return (
         <div className='loginDiv'>
             <h2>Login</h2>
-            <form className='loginForm' onSubmit={loginUser}>
+            <form className='loginForm' onSubmit={validateCredentialsAndLoginUser}>
                 <label id='emailLabel'>
                     Email
                     <br/>
@@ -65,7 +65,6 @@ function Login({setUserState}) {
             </form>
         </div>
     );
-
 }
 
 export default Login;

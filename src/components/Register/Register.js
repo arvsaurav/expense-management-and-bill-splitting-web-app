@@ -1,44 +1,54 @@
 import { useState } from 'react';
 import '../Login/Login.css';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function Register() {
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
     const url = "http://localhost:3001/users";
 
-    const addUser = async () => {
-        await axios.post(url, {
-            id: email,
-            name: name,
-            password: password,
-            friends: []
-        }).then(() => {
-            alert("User registration successful.");
-        }).catch(() => {
-            alert("Something went wrong.");
-        });
-    };
-
     const checkUserExistence = async () => {
-        await axios.get(url)
-            .then((res) => {
-                let doesUserExists = false;
-                res.data.forEach((user) => {
-                    if(user.id === email) {
-                        doesUserExists = true;
-                        return;
-                    }
-                });
-                !doesUserExists ? addUser() : alert("User already exists. Try using different email.");
-            })
-            .catch(() => {
-                alert("Something went wrong.");
+        try {
+            const response = await axios.get(url);
+            let doesUserExists = false;
+            response.data.forEach((user) => {
+                if(user.id === email) {
+                    doesUserExists = true;
+                    return;
+                }
             });
-    };
+            return doesUserExists;
+        }
+        catch {
+            alert("Something went wrong.");
+        }
+    }
+
+    const registerUser = async () => {
+        try {
+            const response = await axios.post(url, {
+                id: email,
+                name: name,
+                password: password,
+                friends: []
+            });
+            if(response.status === 201) {
+                alert("User registration successful.");
+                navigate('../login');
+            }
+            else {
+                alert("User registration failed.");
+            }
+        }
+        catch {
+            alert("Something went wrong.");
+        }
+    }
 
     const resetForm = () => {
         setName('');
@@ -46,16 +56,17 @@ function Register() {
         setPassword('');
     };
 
-    const userRegistration = (event) => {
+    const checkExistenceAndRegisterUser = async (event) => {
         event.preventDefault();
-        checkUserExistence();
+        const doesUserAlreadyExists = await checkUserExistence();
+        !doesUserAlreadyExists ? registerUser() : alert("User already exists. Try using different email.");
         resetForm();
     };
 
     return (
         <div className='registerDiv'>
             <h2>Register</h2>
-            <form className='registerForm' onSubmit={userRegistration}>
+            <form className='registerForm' onSubmit={checkExistenceAndRegisterUser}>
                 <label id='nameLabel'>
                     Name
                     <br/>

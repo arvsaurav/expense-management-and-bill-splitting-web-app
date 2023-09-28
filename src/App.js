@@ -10,7 +10,6 @@ import CustomNavbar from "./components/Navbar/CustomNavbar";
 import LoggedInUserLandingPage from "./components/LoggedInUserLandingPage/LoggedInUserLandingPage";
 import AddFriend from "./components/AddFriend/AddFriend";
 
-
 function App() {
 
   const [userState, setUserState] = useState({
