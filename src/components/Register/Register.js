@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import '../Login/Login.css';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import UserService from '../../services/UserService';
 
 function Register() {
 
@@ -10,19 +10,11 @@ function Register() {
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
-    const url = "http://localhost:3001/users";
-
     const checkUserExistence = async () => {
         try {
-            const response = await axios.get(url);
-            let doesUserExists = false;
-            response.data.forEach((user) => {
-                if(user.id === email) {
-                    doesUserExists = true;
-                    return;
-                }
-            });
-            return doesUserExists;
+            const response = await UserService.getUserById(email);
+            const isExistingUser = Object.keys(response).length === 0 ? false : true;
+            return isExistingUser;
         }
         catch {
             alert("Something went wrong.");
@@ -31,13 +23,13 @@ function Register() {
 
     const registerUser = async () => {
         try {
-            const response = await axios.post(url, {
+            const user = {
                 id: email,
                 name: name,
-                password: password,
-                friends: []
-            });
-            if(response.status === 201) {
+                password: password
+            }
+            const response = await UserService.addUser(user);
+            if(response) {
                 alert("User registration successful.");
                 navigate('../login');
             }
@@ -57,10 +49,15 @@ function Register() {
     };
 
     const checkExistenceAndRegisterUser = async (event) => {
-        event.preventDefault();
-        const doesUserAlreadyExists = await checkUserExistence();
-        !doesUserAlreadyExists ? registerUser() : alert("User already exists. Try using different email.");
-        resetForm();
+        try {
+            event.preventDefault();
+            const doesUserAlreadyExists = await checkUserExistence();
+            !doesUserAlreadyExists ? await registerUser() : alert("User already exists. Try using different email.");
+            resetForm();
+        }
+        catch {
+            alert("Something went wrong.");
+        }
     };
 
     return (

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './Login.css';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import UserService from '../../services/UserService';
 
 function Login({setUserState}) {
 
@@ -9,25 +9,21 @@ function Login({setUserState}) {
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
-    const url = "http://localhost:3001/users";
-
     const validateAndLogin = async () => {
         try {
-            const response = await axios.get(url);
-            let isCredentialsValid = false;
-            response.data.forEach((user) => {
-                if(user.id === email && user.password === password) {
-                    isCredentialsValid = true;
-                    setUserState({
-                        doesUserLoggedIn: true,
-                        email: email,
-                        name: user.name,
-                        friends: user.friends
-                    });
-                    return;
-                }
-            });
-            isCredentialsValid ? navigate('/landingpage') : alert("Invalid credentials.");
+            const response = await UserService.getUserById(email);
+            const isExistingUser = Object.keys(response).length === 0 ? false : true;
+            if(isExistingUser && response.password === password) {
+                setUserState({
+                    doesUserLoggedIn: true,
+                    email: response.id,
+                    name: response.name
+                });
+                navigate('/landingpage');
+            }
+            else {
+                alert("Invalid credentials.");
+            }
         }
         catch {
             alert("Something went wrong.");

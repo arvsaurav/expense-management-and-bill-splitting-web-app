@@ -8,8 +8,7 @@ function Logout({userState, setUserState}) {
             setUserState({
                 doesUserLoggedIn: false,
                 email: '',
-                name: '',
-                friends: []
+                name: ''
             });
         }
         if(userState.doesUserLoggedIn) {

@@ -15,12 +15,11 @@ function App() {
   const [userState, setUserState] = useState({
     'doesUserLoggedIn': false,
     'email': '',
-    'name': '',
-    'friends': []
+    'name': ''
   });
 
   useEffect(() => {
-    // console.log(userState);
+    console.log(userState);
   }, [userState]);
 
   return (
