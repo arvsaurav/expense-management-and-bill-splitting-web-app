@@ -28,9 +28,22 @@ const getUserById = async (id) => {
         const response = await axios.get(baseUrl+'/'+id);
         return response.data;
     }
+    catch {
+        alert("Something went wrong.");
+    }
+}
+
+const checkUserExistence = async (id) => {
+    try {
+        const response = await axios.get(baseUrl+'/'+id);
+        if(response.status === 200) {
+            return true;
+        }
+        return false;
+    }
     catch(err) {
         if(err.response.status === 404) {
-            return {};
+            return false;
         }
         else {
             alert("Something went wrong.");
@@ -53,6 +66,7 @@ const UserService = {
     addUser,
     getAllUsers,
     getUserById,
+    checkUserExistence,
     updateUser
 }
 

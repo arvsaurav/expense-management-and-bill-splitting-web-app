@@ -1,7 +1,7 @@
 {
   "user": [
     {
-      "id": "arvsaurav@gmail.com",
+      "id": "saurav@gmail.com",
       "name": "Saurav Kumar",
       "password": "s12345"
     },
@@ -9,9 +9,12 @@
       "id": "animesh@gmail.com",
       "name": "Animesh Kumar",
       "password": "a12345"
+    },
+    {
+      "id": "kittu@gmail.com",
+      "name": "Kittu",
+      "password": "k12345"
     }
   ],
-  "friend": [
-    {}
-  ]
+  "friend": []
 }

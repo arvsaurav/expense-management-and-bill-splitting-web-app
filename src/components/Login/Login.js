@@ -12,8 +12,7 @@ function Login({setUserState}) {
     const validateAndLogin = async () => {
         try {
             const response = await UserService.getUserById(email);
-            const isExistingUser = Object.keys(response).length === 0 ? false : true;
-            if(isExistingUser && response.password === password) {
+            if(response.password === password) {
                 setUserState({
                     doesUserLoggedIn: true,
                     email: response.id,
@@ -36,9 +35,15 @@ function Login({setUserState}) {
     }
 
     const validateCredentialsAndLoginUser = async (event) => {
-        event.preventDefault();
-        await validateAndLogin();
-        resetForm();
+        try {
+            event.preventDefault();
+            const doesUserExists = await UserService.checkUserExistence(email);
+            doesUserExists ? await validateAndLogin() : alert("Invalid credentials.");
+            resetForm();
+        }
+        catch {
+            alert("Something went wrong.");
+        }
     }
 
     return (

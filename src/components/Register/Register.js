@@ -10,17 +10,6 @@ function Register() {
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
-    const checkUserExistence = async () => {
-        try {
-            const response = await UserService.getUserById(email);
-            const isExistingUser = Object.keys(response).length === 0 ? false : true;
-            return isExistingUser;
-        }
-        catch {
-            alert("Something went wrong.");
-        }
-    }
-
     const registerUser = async () => {
         try {
             const user = {
@@ -51,7 +40,7 @@ function Register() {
     const checkExistenceAndRegisterUser = async (event) => {
         try {
             event.preventDefault();
-            const doesUserAlreadyExists = await checkUserExistence();
+            const doesUserAlreadyExists = await UserService.checkUserExistence(email);
             !doesUserAlreadyExists ? await registerUser() : alert("User already exists. Try using different email.");
             resetForm();
         }
