@@ -12,13 +12,13 @@
     box-shadow: 5px 5px 8px 12px #72A0C1;
 }
 
-.emailLabel {
+.label {
     display: inline-block;
     text-align: left;
 }
 
-.emailLabel input {
-    padding: 10px;
+.label input {
+    padding: 7px;
     margin-top: 5px;
     margin-bottom: 15px;
     width: 30vw;

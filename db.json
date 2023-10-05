@@ -9,12 +9,26 @@
       "id": "animesh@gmail.com",
       "name": "Animesh Kumar",
       "password": "a12345"
-    },
-    {
-      "id": "kittu@gmail.com",
-      "name": "Kittu",
-      "password": "k12345"
     }
   ],
-  "friend": []
+  "friend": [
+    {
+      "id": "saurav@gmail.com",
+      "friendList": [
+        {
+          "name": "Animesh",
+          "email": "animesh@gmail.com"
+        }
+      ]
+    },
+    {
+      "id": "animesh@gmail.com",
+      "friendList": [
+        {
+          "name": "Saurav Kumar",
+          "email": "saurav@gmail.com"
+        }
+      ]
+    }
+  ]
 }

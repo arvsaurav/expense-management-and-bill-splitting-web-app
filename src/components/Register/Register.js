@@ -2,6 +2,7 @@ import { useState } from 'react';
 import '../Login/Login.css';
 import { useNavigate } from 'react-router-dom';
 import UserService from '../../services/UserService';
+import FriendService from '../../services/FriendService';
 
 function Register() {
 
@@ -12,13 +13,16 @@ function Register() {
 
     const registerUser = async () => {
         try {
-            const user = {
+            const response1 = await UserService.addUser({
                 id: email,
                 name: name,
                 password: password
-            }
-            const response = await UserService.addUser(user);
-            if(response) {
+            });
+            const response2 = await FriendService.createFriendList({
+                id: email,
+                friendList: []
+            });
+            if(response1 && response2) {
                 alert("User registration successful.");
                 navigate('../login');
             }
