@@ -75,7 +75,7 @@ function Register() {
                     <input name='password' type='password' placeholder='Enter your password' required value={password} onChange={(event) => {setPassword(event.target.value)}}/>
                 </label>
                 <br/>
-                <input name='submit' type='submit' value='Register'/>
+                <input id='button' name='submit' type='submit' value='Register'/>
             </form>
         </div>
     );

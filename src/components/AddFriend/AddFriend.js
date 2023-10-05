@@ -63,7 +63,13 @@ function AddFriend() {
                     }
                 ]
             });
-            response1 && response2 ? alert('Friend added.') : alert('Something went wrong.');
+            if(response1 && response2) {
+                alert('Friend added.');
+                navigate('../friends');
+            }
+            else {
+                alert('Something went wrong.');
+            }
         }
         catch {
             alert('Something went wrong.');
@@ -93,7 +99,7 @@ function AddFriend() {
 
     return(
         <div className="container">
-            <h2>Add friend</h2>
+            <h2>Add Friend</h2>
             <form onSubmit={validateUserAndAddAsFriend}>
                 <label className="label">
                     Name

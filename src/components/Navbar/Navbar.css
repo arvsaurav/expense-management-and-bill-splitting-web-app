@@ -4,25 +4,26 @@
     border-radius: 1rem;
 }
 
-.navLi {
+.navLi, .navFirstLi {
     display: inline;
     float: right;
     padding: 18px 20px 18px 0px;
     margin: 2px;
 }
 
-.navLi a {
+.navLi a, .navFirstLi a {
     color: white;
     text-decoration: none;
 }
 
-.navLi p {
+.navLi p, .navFirstLi p {
     padding: 18px 20px 18px 0px;
-    margin: 2px;
+    margin: -12px;
     display: inline;
     color: white;
 }
 
 .navLi:hover {
     transform: scale(1.2);
+    cursor: pointer;
 }

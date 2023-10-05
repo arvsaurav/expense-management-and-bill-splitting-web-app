@@ -15,8 +15,8 @@ function LoggedInUserLandingPage({userState}) {
         <div className="container">
             <h1>Welcome to Split Bills!</h1>
             <h3>Split Bills helps you manage expense and split bills with friends.</h3>
-            <button className="button" type="submit">Add expense</button>
-            <button className="button" type="submit" onClick={addFriend}>Add friend</button>
+            <button className="button" type="submit">Add Expense</button>
+            <button className="button" type="submit" onClick={addFriend}>Add Friend</button>
         </div>
     );
 }

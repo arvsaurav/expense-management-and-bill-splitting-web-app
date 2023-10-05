@@ -9,15 +9,21 @@ function CustomNavbar({userState}) {
     return (
         <div>
             <ul className='navUl'>
-                <li className='navLi' style={{float: 'left'}}>
-                    <p> Welcome, {firstName}! </p>
+                <li className='navFirstLi' style={{float: 'left'}}>
+                    <p> Hello, {firstName}! </p>
                 </li>
-                <li className='navLi' style={{marginRight: '1.5vw'}}>
-                    <Link to='/logout'>Logout</Link>
+                <li className='navLi' style={{marginLeft: '20px'}}>
+                    <Link to='/logout'><p>Logout</p></Link>
                 </li>
-                {/* <li className='navLi'>
-                    <Link to="/">My profile</Link>
-                </li> */}
+                <li className='navLi'>
+                    <Link to=''><p>My Expense</p></Link>
+                </li>
+                <li className='navLi'>
+                    <Link to='/friends'><p>Friends</p></Link>
+                </li>
+                <li className='navLi'>
+                    <Link to='/landingPage'><p>Home</p></Link>
+                </li>
             </ul>
         </div>
     );
