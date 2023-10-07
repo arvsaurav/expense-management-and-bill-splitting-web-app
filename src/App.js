@@ -9,7 +9,7 @@ import Logout from "./components/Logout/Logout";
 import CustomNavbar from "./components/Navbar/CustomNavbar";
 import LoggedInUserLandingPage from "./components/LoggedInUserLandingPage/LoggedInUserLandingPage";
 import AddFriend from "./components/AddFriend/AddFriend";
-import Friends from "./components/Friends/ManageFriends";
+import Friends from "./components/ManageFriends/ManageFriends";
 
 function App() {
 

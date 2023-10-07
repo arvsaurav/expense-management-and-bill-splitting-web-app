@@ -19,33 +19,21 @@
       "id": "kittu@gmail.com",
       "name": "Kittu",
       "password": "k12345"
+    },
+    {
+      "id": "ayush@gmail.com",
+      "name": "Ayush Anand",
+      "password": "a12345"
     }
   ],
   "friend": [
     {
       "id": "saurav@gmail.com",
-      "friendList": [
-        {
-          "name": "Animesh",
-          "email": "animesh@gmail.com"
-        },
-        {
-          "name": "Sam",
-          "email": "saksham@gmail.com"
-        },
-        {
-          "name": "Kittu",
-          "email": "kittu@gmail.com"
-        }
-      ]
+      "friendList": []
     },
     {
       "id": "animesh@gmail.com",
       "friendList": [
-        {
-          "name": "Saurav Kumar",
-          "email": "saurav@gmail.com"
-        },
         {
           "name": "Saksham",
           "email": "saksham@gmail.com"
@@ -58,21 +46,16 @@
         {
           "name": "Animesh Kumar",
           "email": "animesh@gmail.com"
-        },
-        {
-          "name": "Saurav Kumar",
-          "email": "saurav@gmail.com"
         }
       ]
     },
     {
       "id": "kittu@gmail.com",
-      "friendList": [
-        {
-          "name": "Saurav",
-          "email": "saurav@gmail.com"
-        }
-      ]
+      "friendList": []
+    },
+    {
+      "id": "ayush@gmail.com",
+      "friendList": []
     }
   ]
 }

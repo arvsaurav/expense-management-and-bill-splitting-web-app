@@ -1,5 +1,8 @@
 .container-div {
+    display: flex;
+    flex-direction: column;
     margin: auto;
+    align-items: center;
     width: fit-content;
     font-family: cursive;
     padding: 2%;
@@ -12,17 +15,20 @@
     box-shadow: 5px 5px 8px 12px #72A0C1;
 }
 
-.label {
-    display: inline-block;
-    text-align: left;
+.friendList {
+    padding: 5%;
+    margin-top: -10px;
 }
 
-.label input {
-    padding: 7px;
-    margin-top: 5px;
-    margin-bottom: 15px;
-    width: 30vw;
-    min-width: 300px;
+th, tr, td {
+    padding: 12px;
+    font-size: large;
+}
+
+.remove-button {
+    padding: 5px 8px 5px 8px;
+    border-radius: 0.5rem;
+    text-align: center;
 }
 
 .button {
@@ -34,7 +40,7 @@
     text-align: center;
 }
 
-.button:hover {
+.button:hover, .remove-button:hover {
     transform: scale(1.1);
     cursor: pointer;
 }

@@ -1,14 +1,15 @@
 import './LoggedInUserLandingPage.css';
 
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function LoggedInUserLandingPage({userState}) {
 
     const navigate = useNavigate();
+    const location = useLocation();
 
     const addFriend = () => {
-        // passing user state to AddFriend component while navigating to AddFriend component
-        navigate('/addfriend', {state: userState});
+        // passing user state and path location to AddFriend component while navigating to AddFriend component
+        navigate('/addfriend', {state: {userState: userState, redirectedFrom: location.pathname}});
     }
 
     return(

@@ -8,14 +8,15 @@ function AddFriend() {
 
     const navigate = useNavigate();
     // consuming userState that is passed as a second argument inside navigate in LoggedInUserLandingPage component
-    // state holds loggedIn user data
-    const { state } = useLocation();
+    // state.userState holds loggedIn user data
+    const location = useLocation();
+    const userState = location.state.userState;
     const [friendsName, setFriendsName] = useState('');
     const [friendsEmail, setFriendsEmail] = useState('');
 
     const checkFriendship = async () => {
         try {
-            const loggedInUserFriendList = await FriendService.getFriendList(state.email);
+            const loggedInUserFriendList = await FriendService.getFriendList(userState.email);
             let isAlreadyFriend = false;
             loggedInUserFriendList.forEach((friend) => {
                 if(friend.email === friendsEmail) {
@@ -32,7 +33,7 @@ function AddFriend() {
 
     const addFriend = async () => {
         try {
-            if(state.email === friendsEmail) {
+            if(userState.email === friendsEmail) {
                 alert("Can't add yourself as a friend.");
                 return;
             }
@@ -42,8 +43,8 @@ function AddFriend() {
                 return;
             }
             // adding friend for loggedIn user
-            const friendListOfLoggedInUser = await FriendService.getFriendList(state.email);
-            const response1 = await FriendService.updateFriendList(state.email, {
+            const friendListOfLoggedInUser = await FriendService.getFriendList(userState.email);
+            const response1 = await FriendService.updateFriendList(userState.email, {
                 friendList: [
                     ...friendListOfLoggedInUser,
                     {
@@ -58,8 +59,8 @@ function AddFriend() {
                 friendList: [
                     ...friendListOfOtherUser,
                     {
-                        name: state.name,
-                        email: state.email
+                        name: userState.name,
+                        email: userState.email
                     }
                 ]
             });
@@ -94,11 +95,11 @@ function AddFriend() {
     }
 
     const returnToLandingPage = () => {
-        navigate('../landingpage');
+        navigate('..'+location.state.redirectedFrom);
     }
 
     return(
-        <div className="container">
+        <div className="container-div">
             <h2>Add Friend</h2>
             <form onSubmit={validateUserAndAddAsFriend}>
                 <label className="label">
