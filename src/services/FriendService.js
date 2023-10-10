@@ -2,9 +2,9 @@ import axios from "axios";
 
 const baseUrl = "http://localhost:3001/friend";
 
-const createFriendList = async (body) => {
+const createFriendList = async (list) => {
     try {
-        const response = await axios.post(baseUrl, body);
+        const response = await axios.post(baseUrl, list);
         const doesFriendListCreated = response.status === 201 ? true : false;
         return doesFriendListCreated;
     }

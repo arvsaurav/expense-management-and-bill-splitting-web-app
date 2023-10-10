@@ -94,7 +94,7 @@ function AddFriend() {
         }
     }
 
-    const returnToLandingPage = () => {
+    const returnToPreviousPage = () => {
         navigate('..'+location.state.redirectedFrom);
     }
 
@@ -115,7 +115,7 @@ function AddFriend() {
                 </label>
                 <br/>
                 <input className="button" name="submit" type="submit" value="Add" />
-                <input className="button" type="button" value="Cancel" onClick={returnToLandingPage} />
+                <input className="button" type="button" value="Cancel" onClick={returnToPreviousPage} />
             </form>
         </div>
     );

@@ -10,6 +10,7 @@ import CustomNavbar from "./components/Navbar/CustomNavbar";
 import LoggedInUserLandingPage from "./components/LoggedInUserLandingPage/LoggedInUserLandingPage";
 import AddFriend from "./components/AddFriend/AddFriend";
 import Friends from "./components/ManageFriends/ManageFriends";
+import AddExpense from "./components/AddExpense/AddExpense";
 
 function App() {
 
@@ -36,6 +37,7 @@ function App() {
             <Route path="landingpage" element={<LoggedInUserLandingPage userState={userState} />}/>
             <Route path="addfriend" Component={AddFriend}/>
             <Route path="friends" element={<Friends userState={userState} />}/>
+            <Route path="addexpense" Component={AddExpense}/>
           </Routes>
         </BrowserRouter>
       </div>

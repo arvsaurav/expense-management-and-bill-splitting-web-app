@@ -3,6 +3,7 @@ import '../Login/Login.css';
 import { useNavigate } from 'react-router-dom';
 import UserService from '../../services/UserService';
 import FriendService from '../../services/FriendService';
+import PersonalExpenseService from '../../services/PersonalExpenseService';
 
 function Register() {
 
@@ -22,7 +23,18 @@ function Register() {
                 id: email,
                 friendList: []
             });
-            if(response1 && response2) {
+            const response3 = await PersonalExpenseService.createExpenseList({
+                id: email,
+                shopping: [],
+                travel: [],
+                food: [],
+                movie: [],
+                rent: [],
+                grocery: [],
+                fuel: [],
+                others: []
+            });
+            if(response1 && response2 && response3) {
                 alert("User registration successful.");
                 navigate('../login');
             }
