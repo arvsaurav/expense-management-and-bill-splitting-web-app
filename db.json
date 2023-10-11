@@ -15,14 +15,58 @@
   "personal-expense": [
     {
       "id": "saurav@gmail.com",
-      "shopping": [],
-      "travel": [],
-      "food": [],
-      "movie": [],
-      "rent": [],
-      "grocery": [],
-      "fuel": [],
-      "others": []
+      "shopping": [
+        {
+          "date": "Oct 02, 2023",
+          "amount": 4500
+        },
+        {
+          "date": "Oct 09, 2023",
+          "amount": 1650
+        }
+      ],
+      "travel": [
+        {
+          "date": "Oct 02, 2023",
+          "amount": 2500
+        }
+      ],
+      "food": [
+        {
+          "date": "Oct 10, 2023",
+          "amount": 350
+        }
+      ],
+      "movie": [
+        {
+          "date": "Oct 10, 2023",
+          "amount": 250
+        }
+      ],
+      "rent": [
+        {
+          "date": "Oct 01, 2023",
+          "amount": 12000
+        }
+      ],
+      "grocery": [
+        {
+          "date": "Oct 10, 2023",
+          "amount": 2800
+        }
+      ],
+      "fuel": [
+        {
+          "date": "Oct 10, 2023",
+          "amount": 1000
+        }
+      ],
+      "others": [
+        {
+          "date": "Oct 07, 2023",
+          "amount": 900
+        }
+      ]
     }
   ]
 }

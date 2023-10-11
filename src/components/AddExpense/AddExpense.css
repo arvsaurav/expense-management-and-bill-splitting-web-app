@@ -1,0 +1,90 @@
+#add-expense-div {
+    margin: auto;
+    margin-bottom: 30px;
+    width: 40%;
+    min-width: 400px;
+    font-family: cursive;
+    padding: 2%;
+    margin-top: 70px;
+    border-radius: 1rem;
+    color: white;
+    opacity: 0.9;
+    text-align: center;
+    background-color: #2774AE;
+    box-shadow: 5px 5px 8px 12px #72A0C1;
+}
+
+#expense-form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    font-size: large;
+}
+
+#select-expense-type-div {
+    margin: auto;
+    width: fit-content;
+    margin-bottom: 5px;
+}
+
+#select-expense-type-div:hover, #select-expense-type-div input:hover, #select-expense-type-div label:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+#shopping, #travel, #food, #movie, #rent, #grocery, #fuel, #others {
+    margin-right: 5px;
+    accent-color: #25315c;
+}
+
+#calendar-div {
+    display: block;
+    margin: auto;
+    width: 300px;
+}
+
+#amount-and-date-div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: auto;
+    margin-top: 15px;
+    width: fit-content;
+}
+
+#amount-and-date-div label {
+    margin-right: 8px;
+}
+
+#amount-and-date-div input {
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    width: fit-content;
+}
+
+#calendar-button {
+    padding: 5px 8px 5px 8px;
+    border-radius: 0.5rem;
+    text-align: center;
+}
+
+#expense-submit-button, #cancel-button {
+    padding: 10px;
+    margin: 15px 10px 15px 10px;
+    width: 15vw;
+    min-width: 170px;
+    border-radius: 0.5rem;
+    text-align: center;
+}
+
+#expense-submit-button:hover, #cancel-button:hover, #calendar-button:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+/* Hide Arrows From Input Number */
+/* Chrome */
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button  { 
+    -webkit-appearance: none;
+} 

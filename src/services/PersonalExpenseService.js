@@ -24,10 +24,10 @@ const updateExpenseById = async (id, expense) => {
     }
 }
 
-const getExpenseById = async (id) => {
+const getExpenseByExpenseType = async (id, expenseType) => {
     try {
         const response = await axios.get(baseUrl+'/'+id);
-        return response.data.expense;
+        return response.data[expenseType];
     }
     catch {
         alert("Something went wrong.");
@@ -37,7 +37,7 @@ const getExpenseById = async (id) => {
 const PersonalExpenseService = {
     createExpenseList,
     updateExpenseById,
-    getExpenseById
+    getExpenseByExpenseType
 }
 
 export default PersonalExpenseService;

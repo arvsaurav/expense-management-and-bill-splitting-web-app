@@ -1,11 +1,8 @@
 .Bg {
     background-image: url("./images/background.jpg");
-    height: 100vh;
     min-height: 100vh;
-    width: auto;
-    /* min-width: 100vw; */
-    background-size: cover;
+    max-height: 150vh;
+    background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
-    
 }
