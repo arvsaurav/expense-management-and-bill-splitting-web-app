@@ -11,6 +11,7 @@ import LoggedInUserLandingPage from "./components/LoggedInUserLandingPage/Logged
 import AddFriend from "./components/AddFriend/AddFriend";
 import Friends from "./components/ManageFriends/ManageFriends";
 import AddExpense from "./components/AddExpense/AddExpense";
+import SelectFriends from "./components/SplitWithFriends/SelectFriends";
 
 function App() {
 
@@ -38,6 +39,7 @@ function App() {
             <Route path="addfriend" Component={AddFriend}/>
             <Route path="friends" element={<Friends userState={userState} />}/>
             <Route path="addexpense" Component={AddExpense}/>
+            <Route path="selectfriends" Component={SelectFriends} />
           </Routes>
         </BrowserRouter>
       </div>

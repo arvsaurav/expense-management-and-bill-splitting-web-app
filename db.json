@@ -4,67 +4,134 @@
       "id": "saurav@gmail.com",
       "name": "Saurav Kumar",
       "password": "s12345"
+    },
+    {
+      "id": "animesh@gmail.com",
+      "name": "Animesh Kumar",
+      "password": "a12345"
+    },
+    {
+      "id": "saksham@gmail.com",
+      "name": "Saksham Kumar",
+      "password": "s12345"
     }
   ],
   "friend": [
     {
       "id": "saurav@gmail.com",
-      "friendList": []
+      "friendList": [
+        {
+          "name": "Animesh Kumar",
+          "email": "animesh@gmail.com"
+        },
+        {
+          "name": "Saksham",
+          "email": "saksham@gmail.com"
+        }
+      ]
+    },
+    {
+      "id": "animesh@gmail.com",
+      "friendList": [
+        {
+          "name": "Saurav Kumar",
+          "email": "saurav@gmail.com"
+        }
+      ]
+    },
+    {
+      "id": "saksham@gmail.com",
+      "friendList": [
+        {
+          "name": "Saurav Kumar",
+          "email": "saurav@gmail.com"
+        }
+      ]
     }
   ],
   "personal-expense": [
     {
       "id": "saurav@gmail.com",
-      "shopping": [
-        {
-          "date": "Oct 02, 2023",
-          "amount": 4500
-        },
-        {
-          "date": "Oct 09, 2023",
-          "amount": 1650
-        }
-      ],
-      "travel": [
-        {
-          "date": "Oct 02, 2023",
-          "amount": 2500
-        }
-      ],
+      "shopping": [],
+      "travel": [],
       "food": [
         {
-          "date": "Oct 10, 2023",
-          "amount": 350
+          "date": "Oct 13, 2023",
+          "amount": 500
         }
       ],
-      "movie": [
+      "movie": [],
+      "rent": [],
+      "grocery": [],
+      "fuel": [],
+      "others": []
+    },
+    {
+      "id": "animesh@gmail.com",
+      "shopping": [],
+      "travel": [],
+      "food": [],
+      "movie": [],
+      "rent": [],
+      "grocery": [],
+      "fuel": [],
+      "others": []
+    },
+    {
+      "id": "saksham@gmail.com",
+      "shopping": [],
+      "travel": [],
+      "food": [],
+      "movie": [],
+      "rent": [],
+      "grocery": [],
+      "fuel": [],
+      "others": []
+    }
+  ],
+  "group-expense": [
+    {
+      "id": "saurav@gmail.comanimesh@gmail.com",
+      "transaction": [
         {
-          "date": "Oct 10, 2023",
-          "amount": 250
+          "date": "Sep 28, 2023",
+          "expenseType": "movie",
+          "amount": 333.3333333333333,
+          "paidBy": "saurav@gmail.com",
+          "isSettledUp": false
+        },
+        {
+          "date": "Oct 12, 2023",
+          "expenseType": "rent",
+          "amount": 3333.3333333333335,
+          "paidBy": "saurav@gmail.com",
+          "isSettledUp": false
+        },
+        {
+          "date": "Oct 13, 2023",
+          "expenseType": "food",
+          "amount": 250,
+          "paidBy": "animesh@gmail.com",
+          "isSettledUp": false
         }
-      ],
-      "rent": [
+      ]
+    },
+    {
+      "id": "saurav@gmail.comsaksham@gmail.com",
+      "transaction": [
         {
-          "date": "Oct 01, 2023",
-          "amount": 12000
-        }
-      ],
-      "grocery": [
+          "date": "Oct 12, 2023",
+          "expenseType": "rent",
+          "amount": 3333.3333333333335,
+          "paidBy": "saurav@gmail.com",
+          "isSettledUp": false
+        },
         {
-          "date": "Oct 10, 2023",
-          "amount": 2800
-        }
-      ],
-      "fuel": [
-        {
-          "date": "Oct 10, 2023",
-          "amount": 1000
-        }
-      ],
-      "others": [
-        {
-          "date": "Oct 07, 2023",
-          "amount": 900
+          "date": "Oct 13, 2023",
+          "expenseType": "others",
+          "amount": 50,
+          "paidBy": "saksham@gmail.com",
+          "isSettledUp": false
         }
       ]
     }

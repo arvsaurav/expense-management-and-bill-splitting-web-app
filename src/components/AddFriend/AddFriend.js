@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import "./AddFriend.css";
 import FriendService from "../../services/FriendService";
 import UserService from "../../services/UserService";
+import SplitBillService from "../../services/SplitBillService";
 
 function AddFriend() {
 
@@ -64,7 +65,14 @@ function AddFriend() {
                     }
                 ]
             });
-            if(response1 && response2) {
+            // create empty transaction list with unique id
+            let id = friendsEmail.localeCompare(userState.email) === 1 ? friendsEmail+userState.email : userState.email+friendsEmail;
+            const response3 = await SplitBillService.createTransaction({
+                id: id,
+                transaction: []
+            });
+
+            if(response1 && response2 && response3) {
                 alert('Friend added.');
                 navigate('../friends');
             }

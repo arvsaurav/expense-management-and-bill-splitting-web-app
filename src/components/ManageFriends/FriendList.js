@@ -1,4 +1,5 @@
 import FriendService from "../../services/FriendService";
+import SplitBillService from "../../services/SplitBillService";
 import "./ManageFriends.css";
 
 function FriendList({ userState, friendList, setFriendList, setFriendsCount }) {
@@ -20,7 +21,12 @@ function FriendList({ userState, friendList, setFriendList, setFriendsCount }) {
             const response2 = await FriendService.updateFriendList(friendsEmail, {
                 friendList: updatedFriendList
             });
-            response1 && response2 ? alert(`${friendsName} is removed from friend list.`) : alert("Something went wrong.");
+
+            // deleting transaction between user and friend
+            let id = friendsEmail.localeCompare(userState.email) === 1 ? friendsEmail+userState.email : userState.email+friendsEmail;
+            const response3 = await SplitBillService.deleteTransaction(id);
+
+            response1 && response2 && response3 ? alert(`${friendsName} is removed from friend list. All the transactions between you and ${friendsName} is deleted.`) : alert("Something went wrong.");
         }
         catch {
             alert("Something went wrong.");

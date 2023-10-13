@@ -27,7 +27,7 @@ function ManageFriends({userState}) {
     }, [userState]);
 
     return (
-        <div className="container-div">
+        <div className="manage-friends-div">
             <h1>Manage Friends</h1>
             <div className="friendList">
                 {

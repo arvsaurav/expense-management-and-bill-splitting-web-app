@@ -76,16 +76,17 @@ function AddExpense() {
     }
 
     const addGroupExpense = async () => {
-        alert("group expense");
-        // to be implemented
+        navigate('/selectfriends', {state: {userState: userState, expenseType: expenseType, amount: amount, dateString: dateString, redirectedFrom: location.state.redirectedFrom}});
     }
 
     const resetForm = () => {
-        // resetting expense-type checkboxes
-        document.getElementById(expenseType).checked = false;
-        setAmount('');
-        setIsPersonalExpense(false);
-        setDate(new Date());
+        if(isPersonalExpense) {
+            // resetting expense-type checkboxes
+            document.getElementById(expenseType).checked = false;
+            setAmount('');
+            setIsPersonalExpense(false);
+            setDate(new Date());
+        }
     }
 
     const addExpense = async (event) => {

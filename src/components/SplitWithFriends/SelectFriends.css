@@ -1,7 +1,8 @@
-.manage-friends-div {
+.select-friend-container-div {
     display: flex;
     flex-direction: column;
     margin: auto;
+    margin-bottom: 30px;
     align-items: center;
     width: fit-content;
     font-family: cursive;
@@ -25,10 +26,14 @@ th, tr, td {
     font-size: large;
 }
 
-.remove-button {
-    padding: 5px 8px 5px 8px;
-    border-radius: 0.5rem;
-    text-align: center;
+.friend-selection-checkbox {
+    accent-color: #25315c;
+    transform: scale(1.2);
+}
+
+.friend-selection-checkbox:hover {
+    cursor: pointer;
+    transform: scale(1.5);
 }
 
 .button {
