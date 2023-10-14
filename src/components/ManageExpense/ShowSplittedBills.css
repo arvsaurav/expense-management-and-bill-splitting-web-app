@@ -1,0 +1,68 @@
+#friend-card {
+    width: 100%;
+    margin-bottom: 10px;
+    color: black;
+    padding: 2px;
+    font-family: cursive;
+    background-color: #bdcfd4;
+    border-radius: 0.5rem;
+}
+
+#friend-card:hover {
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+#friend-card-name-email {
+    margin-left: 2%;
+    text-align: left;
+    width: fit-content;
+}
+
+.friend-card-view-all-bills {
+    margin: auto;
+    margin-top: -8px;
+    margin-bottom: 10px;
+    width: 96%;
+    padding: 5px;
+    background-color: rgb(147, 194, 194);
+    border-radius: 0.5rem;
+}
+
+.profile-card-transaction {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 98%;
+    margin: auto;
+    margin-top: 5px;
+    padding: 2px;
+    background-color: rgb(220, 224, 228);
+    border-radius: 0.5rem;
+}
+
+.profile-card-transaction div {
+    padding: 5px;
+    border-radius: 0.5rem;
+}
+
+#settle-up-button {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px;
+    background-color: #FF5E0E;
+    border-radius: 0.5rem;
+}
+
+#settled-button {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 16px 10px 16px;
+    background-color: #4CBB17;
+    border-radius: 0.5rem;
+}
+
+#settle-up-button:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}

@@ -14,6 +14,11 @@
       "id": "saksham@gmail.com",
       "name": "Saksham Kumar",
       "password": "s12345"
+    },
+    {
+      "id": "ayush@gmail.com",
+      "name": "Ayush Anand",
+      "password": "a12345"
     }
   ],
   "friend": [
@@ -27,6 +32,10 @@
         {
           "name": "Saksham",
           "email": "saksham@gmail.com"
+        },
+        {
+          "name": "Ayush",
+          "email": "ayush@gmail.com"
         }
       ]
     },
@@ -41,6 +50,15 @@
     },
     {
       "id": "saksham@gmail.com",
+      "friendList": [
+        {
+          "name": "Saurav Kumar",
+          "email": "saurav@gmail.com"
+        }
+      ]
+    },
+    {
+      "id": "ayush@gmail.com",
       "friendList": [
         {
           "name": "Saurav Kumar",
@@ -87,6 +105,17 @@
       "grocery": [],
       "fuel": [],
       "others": []
+    },
+    {
+      "id": "ayush@gmail.com",
+      "shopping": [],
+      "travel": [],
+      "food": [],
+      "movie": [],
+      "rent": [],
+      "grocery": [],
+      "fuel": [],
+      "others": []
     }
   ],
   "group-expense": [
@@ -112,7 +141,7 @@
           "expenseType": "food",
           "amount": 250,
           "paidBy": "animesh@gmail.com",
-          "isSettledUp": false
+          "isSettledUp": true
         }
       ]
     },
@@ -131,9 +160,13 @@
           "expenseType": "others",
           "amount": 50,
           "paidBy": "saksham@gmail.com",
-          "isSettledUp": false
+          "isSettledUp": true
         }
       ]
+    },
+    {
+      "id": "saurav@gmail.comayush@gmail.com",
+      "transaction": []
     }
   ]
 }

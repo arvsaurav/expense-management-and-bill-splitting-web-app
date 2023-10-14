@@ -1,0 +1,47 @@
+.manage-expense-div {
+    margin: auto;
+    margin-bottom: 30px;
+    width: 50%;
+    min-width: 400px;
+    font-family: cursive;
+    padding: 2%;
+    margin-top: 70px;
+    border-radius: 1rem;
+    color: white;
+    opacity: 0.9;
+    text-align: center;
+    background-color: #2774AE;
+    box-shadow: 5px 5px 8px 12px #72A0C1;
+}
+
+.collapsible {
+    width: 95%;
+    height: 50px;
+    margin-top: 20px;
+    text-align: left;
+    font-family: cursive;
+    font-size: medium;
+    font-weight: 500;
+    color: rgb(8, 7, 7);
+    background-color: aliceblue;
+    padding-left: 15px;
+    border-radius: 0.5rem;
+}
+
+.collapsible:hover {
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+.view-personal-expense, .view-bills-splitted-with-friends {
+    width: 93%;
+    margin-top: 2px;
+    margin-left: 3.5%;
+    background-color: rgb(204, 225, 244);
+    color: black;
+    border-radius: 0.5rem;
+}
+
+.content {
+    padding: 10px;
+}

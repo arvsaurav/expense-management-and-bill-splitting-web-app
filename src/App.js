@@ -9,9 +9,10 @@ import Logout from "./components/Logout/Logout";
 import CustomNavbar from "./components/Navbar/CustomNavbar";
 import LoggedInUserLandingPage from "./components/LoggedInUserLandingPage/LoggedInUserLandingPage";
 import AddFriend from "./components/AddFriend/AddFriend";
-import Friends from "./components/ManageFriends/ManageFriends";
+import ManageFriends from "./components/ManageFriends/ManageFriends";
 import AddExpense from "./components/AddExpense/AddExpense";
 import SelectFriends from "./components/SplitWithFriends/SelectFriends";
+import ManageExpense from "./components/ManageExpense/ManageExpense";
 
 function App() {
 
@@ -37,9 +38,10 @@ function App() {
             <Route path="logout" element={<Logout userState={userState} setUserState={setUserState} />}/>
             <Route path="landingpage" element={<LoggedInUserLandingPage userState={userState} />}/>
             <Route path="addfriend" Component={AddFriend}/>
-            <Route path="friends" element={<Friends userState={userState} />}/>
+            <Route path="friends" element={<ManageFriends userState={userState} />}/>
             <Route path="addexpense" Component={AddExpense}/>
             <Route path="selectfriends" Component={SelectFriends} />
+            <Route path="expenses" element={<ManageExpense userState={userState} />} /> 
           </Routes>
         </BrowserRouter>
       </div>

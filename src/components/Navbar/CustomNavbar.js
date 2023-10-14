@@ -16,7 +16,7 @@ function CustomNavbar({userState}) {
                     <Link to='/logout'><p>Logout</p></Link>
                 </li>
                 <li className='navLi'>
-                    <Link to=''><p>My Expense</p></Link>
+                    <Link to='/expenses'><p>My Expense</p></Link>
                 </li>
                 <li className='navLi'>
                     <Link to='/friends'><p>Friends</p></Link>
