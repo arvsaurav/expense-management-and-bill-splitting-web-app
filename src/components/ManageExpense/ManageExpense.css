@@ -45,3 +45,10 @@
 .content {
     padding: 10px;
 }
+
+#up-down-icon {
+    float: right;
+    margin-right: 10px;
+    width: 25px;
+    height: 25px;
+}
