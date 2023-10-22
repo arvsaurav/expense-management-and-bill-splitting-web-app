@@ -34,10 +34,21 @@ const getExpenseByExpenseType = async (id, expenseType) => {
     }
 }
 
+const getExpenseById = async (id) => {
+    try {
+        const response = await axios.get(baseUrl+'/'+id);
+        return response.data;
+    }
+    catch {
+        alert("Something went wrong.");
+    }
+}
+
 const PersonalExpenseService = {
     createExpenseList,
     updateExpenseById,
-    getExpenseByExpenseType
+    getExpenseByExpenseType,
+    getExpenseById
 }
 
 export default PersonalExpenseService;

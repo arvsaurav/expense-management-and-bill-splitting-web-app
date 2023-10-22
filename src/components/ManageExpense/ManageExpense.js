@@ -11,6 +11,8 @@ function ManageExpense({userState}) {
     const [splittedBillsVisibility, setSplittedBillsVisibility] = useState('none');
     const [iconPersonalExpense, setIconPersonalExpense] = useState(DownIcon);
     const [iconSplittedBills, setIconSplittedBills] = useState(DownIcon);
+    // today's personal expense, last month's or so far personal expense
+    const [expenseDate, setExpenseDate] = useState("");
 
     const setVisibility = (id) => {
         if(id === "collapsible1") {
@@ -21,6 +23,7 @@ function ManageExpense({userState}) {
             else {
                 setIconPersonalExpense(DownIcon);
                 setPersonalExpenseVisibility('none');
+                setExpenseDate("");
             }
         }
         if(id === "collapsible2") {
@@ -45,7 +48,7 @@ function ManageExpense({userState}) {
                 </button>
                 <div className="view-personal-expense" style={{display: `${personalExpenseVisibility}`}}>
                     <div className="content">
-                        <ShowPersonalExpense userState={userState} />
+                        <ShowPersonalExpense userState={userState} expenseDate={expenseDate} setExpenseDate={setExpenseDate} />
                     </div>
                 </div>
                 <br/>

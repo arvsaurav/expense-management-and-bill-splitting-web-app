@@ -1,0 +1,20 @@
+#expense-container-show-expense-div {
+    margin-top: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: rgb(220, 224, 228);
+    border-radius: 0.5rem;
+}
+
+#expense-container-show-expense-div h3 {
+    padding-bottom: 5px;
+}
+
+#each-category-expense-div {
+    margin: auto;
+    margin-bottom: 5px;
+    width: fit-content;
+    padding: 5px;
+    background-color: #f4f8f9;
+    border-radius: 0.5rem;
+}

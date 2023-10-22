@@ -1,0 +1,101 @@
+#expense-between-two-dates-container-div {
+    margin-top: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: rgb(220, 224, 228);
+    border-radius: 0.5rem;
+}
+
+#date-range-selector-div {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+#start-date-div, #end-date-div {
+    width: 45%;
+}
+
+#from, #to {
+    margin-left: 5px;
+    width: 40%;
+    height: 20px;
+}
+
+#start-date-calendar-button, #end-date-calendar-button {
+    margin-left: 2px;
+    width: 25px;
+    height: 20px;
+}
+
+#start-date-calendar-button img, #end-date-calendar-button img {
+    margin-left: -5px;
+    margin-bottom: -2.5px;
+    width: 20px;
+    height: 100%;
+}
+
+#start-date-calendar-button:hover, #end-date-calendar-button:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+#expense-details-render-div {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+#expense-category-card {
+    display: inline-block;
+    vertical-align: top;
+    width: 45%;
+    margin: 5px;
+    margin-top: 10px;
+    min-width: 200px;
+    background-color: rgb(187, 198, 207);
+    border-radius: 0.5rem;
+}
+
+#expense-category-card h3 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
+#expense-category-card:hover {
+    transform: scale(1.05);
+}
+
+#expense-data-div {
+    min-height: 100px;
+    max-height: 100px;
+    overflow-y: scroll;
+}
+
+#expense-data-div::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 0.5rem;
+}
+#expense-data-div::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+#expense-data-div::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+#expense-date-amount {
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    min-width: 180px;
+    margin: auto;
+    margin-bottom: 3px;
+    padding: 5px;
+    background-color: aliceblue;
+    border-radius: 0.5rem;
+}
+
+#display-category-wise-total-amount-div {
+    padding: 5px;
+}

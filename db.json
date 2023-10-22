@@ -19,6 +19,16 @@
       "id": "ayush@gmail.com",
       "name": "Ayush Anand",
       "password": "a12345"
+    },
+    {
+      "id": "skr@gmail.com",
+      "name": "SKR",
+      "password": "s12345"
+    },
+    {
+      "id": "sagar@gmail",
+      "name": "Sagar",
+      "password": "s12345"
     }
   ],
   "friend": [
@@ -45,6 +55,10 @@
         {
           "name": "Saurav Kumar",
           "email": "saurav@gmail.com"
+        },
+        {
+          "name": "Sagar",
+          "email": "sagar@gmail"
         }
       ]
     },
@@ -65,16 +79,129 @@
           "email": "saurav@gmail.com"
         }
       ]
+    },
+    {
+      "id": "skr@gmail.com",
+      "friendList": []
+    },
+    {
+      "id": "sagar@gmail",
+      "friendList": [
+        {
+          "name": "Animesh",
+          "email": "animesh@gmail.com"
+        }
+      ]
     }
   ],
   "personal-expense": [
     {
       "id": "saurav@gmail.com",
-      "shopping": [],
-      "travel": [],
+      "shopping": [
+        {
+          "date": "Oct 17, 2023",
+          "amount": 3000
+        },
+        {
+          "date": "Oct 19, 2023",
+          "amount": 300
+        },
+        {
+          "date": "Oct 18, 2023",
+          "amount": 500
+        },
+        {
+          "date": "Aug 09, 2023",
+          "amount": 850
+        },
+        {
+          "date": "Sep 14, 2023",
+          "amount": 500
+        },
+        {
+          "date": "Aug 11, 2023",
+          "amount": 250
+        },
+        {
+          "date": "Aug 11, 2022",
+          "amount": 1700
+        }
+      ],
+      "travel": [
+        {
+          "date": "Oct 16, 2023",
+          "amount": 2200
+        },
+        {
+          "date": "Oct 06, 2023",
+          "amount": 300
+        },
+        {
+          "date": "Oct 18, 2023",
+          "amount": 300
+        }
+      ],
       "food": [
         {
           "date": "Oct 13, 2023",
+          "amount": 500
+        },
+        {
+          "date": "Oct 19, 2023",
+          "amount": 300
+        },
+        {
+          "date": "Aug 12, 2022",
+          "amount": 700
+        }
+      ],
+      "movie": [
+        {
+          "date": "Oct 16, 2023",
+          "amount": 500
+        }
+      ],
+      "rent": [
+        {
+          "date": "Oct 01, 2023",
+          "amount": 6000
+        }
+      ],
+      "grocery": [
+        {
+          "date": "Oct 17, 2023",
+          "amount": 1000
+        },
+        {
+          "date": "Oct 18, 2023",
+          "amount": 700
+        }
+      ],
+      "fuel": [
+        {
+          "date": "Oct 17, 2023",
+          "amount": 500
+        }
+      ],
+      "others": [
+        {
+          "date": "Oct 17, 2023",
+          "amount": 700
+        }
+      ]
+    },
+    {
+      "id": "animesh@gmail.com",
+      "shopping": [],
+      "travel": [
+        {
+          "date": "Oct 18, 2023",
+          "amount": 1000
+        }
+      ],
+      "food": [
+        {
+          "date": "Oct 17, 2023",
           "amount": 500
         }
       ],
@@ -85,21 +212,15 @@
       "others": []
     },
     {
-      "id": "animesh@gmail.com",
-      "shopping": [],
-      "travel": [],
-      "food": [],
-      "movie": [],
-      "rent": [],
-      "grocery": [],
-      "fuel": [],
-      "others": []
-    },
-    {
       "id": "saksham@gmail.com",
       "shopping": [],
       "travel": [],
-      "food": [],
+      "food": [
+        {
+          "date": "Oct 17, 2023",
+          "amount": 600
+        }
+      ],
       "movie": [],
       "rent": [],
       "grocery": [],
@@ -111,6 +232,38 @@
       "shopping": [],
       "travel": [],
       "food": [],
+      "movie": [],
+      "rent": [],
+      "grocery": [],
+      "fuel": [],
+      "others": []
+    },
+    {
+      "id": "skr@gmail.com",
+      "shopping": [],
+      "travel": [],
+      "food": [],
+      "movie": [],
+      "rent": [],
+      "grocery": [],
+      "fuel": [],
+      "others": []
+    },
+    {
+      "id": "sagar@gmail",
+      "shopping": [
+        {
+          "date": "Oct 18, 2023",
+          "amount": 1000
+        }
+      ],
+      "travel": [],
+      "food": [
+        {
+          "date": "Oct 05, 2023",
+          "amount": 300
+        }
+      ],
       "movie": [],
       "rent": [],
       "grocery": [],
@@ -167,6 +320,18 @@
     {
       "id": "saurav@gmail.comayush@gmail.com",
       "transaction": []
+    },
+    {
+      "id": "sagar@gmailanimesh@gmail.com",
+      "transaction": [
+        {
+          "date": "Oct 18, 2023",
+          "expenseType": "food",
+          "amount": 333.3333333333333,
+          "paidBy": "sagar@gmail",
+          "isSettledUp": false
+        }
+      ]
     }
   ]
 }
