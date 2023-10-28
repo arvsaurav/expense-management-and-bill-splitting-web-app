@@ -100,7 +100,7 @@
       "shopping": [
         {
           "date": "Oct 17, 2023",
-          "amount": 3000
+          "amount": 4000
         },
         {
           "date": "Oct 19, 2023",
@@ -139,6 +139,18 @@
         {
           "date": "Oct 18, 2023",
           "amount": 300
+        },
+        {
+          "date": "Oct 17, 2023",
+          "amount": 1250
+        },
+        {
+          "date": "Oct 28, 2023",
+          "amount": 1450
+        },
+        {
+          "date": "Oct 05, 2023",
+          "amount": 250
         }
       ],
       "food": [
@@ -153,6 +165,10 @@
         {
           "date": "Aug 12, 2022",
           "amount": 700
+        },
+        {
+          "date": "Oct 28, 2023",
+          "amount": 500
         }
       ],
       "movie": [
@@ -218,7 +234,7 @@
       "food": [
         {
           "date": "Oct 17, 2023",
-          "amount": 600
+          "amount": 850
         }
       ],
       "movie": [],
@@ -295,6 +311,20 @@
           "amount": 250,
           "paidBy": "animesh@gmail.com",
           "isSettledUp": true
+        },
+        {
+          "date": "Oct 17, 2023",
+          "expenseType": "shopping",
+          "amount": 1000,
+          "paidBy": "saurav@gmail.com",
+          "isSettledUp": false
+        },
+        {
+          "date": "Oct 28, 2023",
+          "expenseType": "travel",
+          "amount": 250,
+          "paidBy": "saurav@gmail.com",
+          "isSettledUp": false
         }
       ]
     },
@@ -314,12 +344,48 @@
           "amount": 50,
           "paidBy": "saksham@gmail.com",
           "isSettledUp": true
+        },
+        {
+          "date": "Oct 17, 2023",
+          "expenseType": "shopping",
+          "amount": 1000,
+          "paidBy": "saurav@gmail.com",
+          "isSettledUp": false
+        },
+        {
+          "date": "Oct 17, 2023",
+          "expenseType": "travel",
+          "amount": 1250,
+          "paidBy": "saurav@gmail.com",
+          "isSettledUp": false
+        },
+        {
+          "date": "Oct 17, 2023",
+          "expenseType": "food",
+          "amount": 250,
+          "paidBy": "saksham@gmail.com",
+          "isSettledUp": false
         }
       ]
     },
     {
       "id": "saurav@gmail.comayush@gmail.com",
-      "transaction": []
+      "transaction": [
+        {
+          "date": "Oct 05, 2023",
+          "expenseType": "travel",
+          "amount": 250,
+          "paidBy": "saurav@gmail.com",
+          "isSettledUp": false
+        },
+        {
+          "date": "Oct 28, 2023",
+          "expenseType": "travel",
+          "amount": 200,
+          "paidBy": "saurav@gmail.com",
+          "isSettledUp": false
+        }
+      ]
     },
     {
       "id": "sagar@gmailanimesh@gmail.com",

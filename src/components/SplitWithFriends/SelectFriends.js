@@ -3,6 +3,7 @@ import FriendService from "../../services/FriendService";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./SelectFriends.css";
 import SplitBillService from "../../services/SplitBillService";
+import PersonalExpenseService from "../../services/PersonalExpenseService";
 
 function SelectFriends() {
 
@@ -66,7 +67,37 @@ function SelectFriends() {
                     alert("Something went wrong.");
                 }
             });
-            alert("Bill splitted successfully.");
+            // add (total_amount/total_person) as personal expense
+            const getAllExpenseOfCurrentExpenseType = await PersonalExpenseService.getExpenseByExpenseType(userState.email, location.state.expenseType);
+            // check whether any expense already added on same date
+            // if yes, sum both amounts
+            // if no, push new expense object in the array
+            let flag = false;
+            const updatedExpenseListOfCurrentExpenseType = getAllExpenseOfCurrentExpenseType.map((expenseObject) => {
+                if(expenseObject.date === location.state.dateString) {
+                    expenseObject.amount = expenseObject.amount + parseInt(location.state.amount/(selectedFriends.length+1));
+                    flag = true;
+                }
+                return expenseObject;
+            });
+            if(!flag) {
+                updatedExpenseListOfCurrentExpenseType.push({
+                    date: location.state.dateString,
+                    amount: parseInt(location.state.amount/(selectedFriends.length+1))
+                });
+            }
+            const doesExpenseListUpdatedSuccessfully = await PersonalExpenseService.updateExpenseById(userState.email, {
+                [location.state.expenseType]: updatedExpenseListOfCurrentExpenseType
+            });
+            if(doesExpenseListUpdatedSuccessfully) {
+                alert("Bill splitted successfully.");
+                if(window.confirm("Do you want to navigate to manage expense page?")) {
+                    navigate('/expenses');
+                }
+            }
+            else {
+                alert("Something went wrong.");
+            }
         }
         catch {
             alert("Something went wrong.");

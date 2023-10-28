@@ -68,7 +68,15 @@ function AddExpense() {
             const doesExpenseListUpdatedSuccessfully = await PersonalExpenseService.updateExpenseById(userState.email, {
                 [expenseType]: updatedExpenseListOfCurrentExpenseType
             });
-            doesExpenseListUpdatedSuccessfully ? alert("Expense added.") : alert("Something went wrong.");
+            if(doesExpenseListUpdatedSuccessfully) {
+                alert("Expense added.")
+                if(window.confirm("Do you want to navigate to manage expense page?")) {
+                    navigate('/expenses');
+                }
+            }
+            else {
+                alert("Something went wrong.");
+            }
         }
         catch {
             alert("Something went wrong.");
