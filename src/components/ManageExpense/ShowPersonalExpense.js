@@ -5,7 +5,7 @@ import TodaysExpense from "./ShowPersonalExpenseCategory/TodaysExpense";
 import ExpenseSoFar from "./ShowPersonalExpenseCategory/ExpenseSoFar";
 import ExpenseBetweenTwoDates from "./ShowPersonalExpenseCategory/ExpenseBetweenTwoDates";
 
-function ShowPersonalExpense({userState, expenseDate, setExpenseDate}) {
+function ShowPersonalExpense({userState, expenseDate, setExpenseDate, buttonColors, setButtonColors}) {
 
     const [expenses, setExpenses] = useState({});
 
@@ -25,9 +25,9 @@ function ShowPersonalExpense({userState, expenseDate, setExpenseDate}) {
     return (
         <div>
             <div id="view-personal-expense-buttons">
-                <button onClick={() => setExpenseDate("today")}>Today's Expense</button>
-                <button onClick={() => setExpenseDate("betweenTwoDates")}>Expense Between Two Dates</button>
-                <button onClick={() => setExpenseDate("soFar")}>Expenses So Far</button>  
+                <button onClick={() => {setExpenseDate("today"); setButtonColors(["rgb(199, 202, 205)", "rgb(232, 239, 245)", "rgb(232, 239, 245)"]);}} style={{backgroundColor: `${buttonColors[0]}`}}>Today's Expense</button>
+                <button onClick={() => {setExpenseDate("betweenTwoDates"); setButtonColors(["rgb(232, 239, 245)", "rgb(199, 202, 205)", "rgb(232, 239, 245)"]);}} style={{backgroundColor: `${buttonColors[1]}`}}>Expense Between Two Dates</button>
+                <button onClick={() => {setExpenseDate("soFar"); setButtonColors(["rgb(232, 239, 245)", "rgb(232, 239, 245)", "rgb(199, 202, 205)"]);}} style={{backgroundColor: `${buttonColors[2]}`}}>Expenses So Far</button>  
             </div>
             <div>
                 {

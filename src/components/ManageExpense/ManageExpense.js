@@ -13,12 +13,14 @@ function ManageExpense({userState}) {
     const [iconSplittedBills, setIconSplittedBills] = useState(DownIcon);
     // today's personal expense, last month's or so far personal expense
     const [expenseDate, setExpenseDate] = useState("");
+    const [buttonColors, setButtonColors] = useState(["rgb(232, 239, 245)", "rgb(232, 239, 245)", "rgb(232, 239, 245)"]);
 
     const setVisibility = (id) => {
         if(id === "collapsible1") {
             if(personalExpenseVisibility === 'none') {
                 setIconPersonalExpense(UpIcon);
                 setPersonalExpenseVisibility('block');
+                setButtonColors(["rgb(232, 239, 245)", "rgb(232, 239, 245)", "rgb(232, 239, 245)"]);
             }
             else {
                 setIconPersonalExpense(DownIcon);
@@ -48,7 +50,7 @@ function ManageExpense({userState}) {
                 </button>
                 <div className="view-personal-expense" style={{display: `${personalExpenseVisibility}`}}>
                     <div className="content">
-                        <ShowPersonalExpense userState={userState} expenseDate={expenseDate} setExpenseDate={setExpenseDate} />
+                        <ShowPersonalExpense userState={userState} expenseDate={expenseDate} setExpenseDate={setExpenseDate} buttonColors={buttonColors} setButtonColors={setButtonColors} />
                     </div>
                 </div>
                 <br/>
