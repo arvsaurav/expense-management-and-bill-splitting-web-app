@@ -91,9 +91,7 @@ function SelectFriends() {
             });
             if(doesExpenseListUpdatedSuccessfully) {
                 alert("Bill splitted successfully.");
-                if(window.confirm("Do you want to navigate to manage expense page?")) {
-                    navigate('/expenses');
-                }
+                navigate('/expenses');
             }
             else {
                 alert("Something went wrong.");

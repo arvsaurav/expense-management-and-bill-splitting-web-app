@@ -29,6 +29,11 @@
       "id": "sagar@gmail",
       "name": "Sagar",
       "password": "s12345"
+    },
+    {
+      "id": "dummy@gmail.com",
+      "name": "dummy",
+      "password": "U2FsdGVkX1/jBYORRVQB59hy5LbFUJv3EtTEKS1DWAQ="
     }
   ],
   "friend": [
@@ -92,6 +97,10 @@
           "email": "animesh@gmail.com"
         }
       ]
+    },
+    {
+      "id": "dummy@gmail.com",
+      "friendList": []
     }
   ],
   "personal-expense": [
@@ -283,6 +292,22 @@
       "movie": [],
       "rent": [],
       "grocery": [],
+      "fuel": [],
+      "others": []
+    },
+    {
+      "id": "dummy@gmail.com",
+      "shopping": [],
+      "travel": [],
+      "food": [],
+      "movie": [],
+      "rent": [],
+      "grocery": [
+        {
+          "date": "Oct 29, 2023",
+          "amount": 1000
+        }
+      ],
       "fuel": [],
       "others": []
     }

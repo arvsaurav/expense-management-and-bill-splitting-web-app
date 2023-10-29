@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './Login.css';
 import { useNavigate } from 'react-router-dom';
 import UserService from '../../services/UserService';
+import CryptoJS from 'crypto-js';
 
 function Login({setUserState}) {
 
@@ -9,10 +10,18 @@ function Login({setUserState}) {
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
+    const decryptPassword = (fetchedPassword) => {
+        const secretPass = "XkhZG4fW2t2W";
+        const bytes = CryptoJS.AES.decrypt(fetchedPassword, secretPass);
+        const data = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+        return data;
+    }
+
     const validateAndLogin = async () => {
         try {
             const response = await UserService.getUserById(email);
-            if(response.password === password) {
+            const decryptedPassword = decryptPassword(response.password);
+            if(decryptedPassword === password) {
                 setUserState({
                     doesUserLoggedIn: true,
                     email: response.id,

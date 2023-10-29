@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import UserService from '../../services/UserService';
 import FriendService from '../../services/FriendService';
 import PersonalExpenseService from '../../services/PersonalExpenseService';
+import CryptoJS from 'crypto-js';
 
 function Register() {
 
@@ -12,12 +13,23 @@ function Register() {
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
+    const encryptPassword = () => {
+        // secrete passphrase 
+        const secretPass = "XkhZG4fW2t2W";
+        const data = CryptoJS.AES.encrypt(
+            JSON.stringify(password),
+            secretPass
+        ).toString();
+        return data;
+    }
+
     const registerUser = async () => {
         try {
+            const encryptedPassword = encryptPassword();
             const response1 = await UserService.addUser({
                 id: email,
                 name: name,
-                password: password
+                password: encryptedPassword
             });
             const response2 = await FriendService.createFriendList({
                 id: email,

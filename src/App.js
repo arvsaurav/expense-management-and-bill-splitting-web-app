@@ -1,5 +1,5 @@
 import "./App.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Homepage from "./components/Homepage/Homepage";
 import Navbar from "./components/Navbar/Navbar";
@@ -21,10 +21,6 @@ function App() {
     'email': '',
     'name': ''
   });
-
-  useEffect(() => {
-    console.log(userState);
-  }, [userState]);
 
   return (
     <div className="App">
