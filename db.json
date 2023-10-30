@@ -4,17 +4,57 @@
       "id": "saurav@gmail.com",
       "name": "Saurav Kumar",
       "password": "U2FsdGVkX1+iVVtfJtePgYJ5/DCp8AZ5+oiEKqjJ2bs="
+    },
+    {
+      "id": "ayush@gmail.com",
+      "name": "Ayush Anand",
+      "password": "U2FsdGVkX1827OPmrDhEAv5LjRg9snZpqIk54u3Pceo="
+    },
+    {
+      "id": "saksham@gmail.com",
+      "name": "Saksham Kumar",
+      "password": "U2FsdGVkX1+fUP96h8BM3Cv4SL6UJav5PE3gyAt+g9E="
     }
   ],
   "friend": [
     {
       "id": "saurav@gmail.com",
       "friendList": []
+    },
+    {
+      "id": "ayush@gmail.com",
+      "friendList": []
+    },
+    {
+      "id": "saksham@gmail.com",
+      "friendList": []
     }
   ],
   "personal-expense": [
     {
       "id": "saurav@gmail.com",
+      "shopping": [],
+      "travel": [],
+      "food": [],
+      "movie": [],
+      "rent": [],
+      "grocery": [],
+      "fuel": [],
+      "others": []
+    },
+    {
+      "id": "ayush@gmail.com",
+      "shopping": [],
+      "travel": [],
+      "food": [],
+      "movie": [],
+      "rent": [],
+      "grocery": [],
+      "fuel": [],
+      "others": []
+    },
+    {
+      "id": "saksham@gmail.com",
       "shopping": [],
       "travel": [],
       "food": [],

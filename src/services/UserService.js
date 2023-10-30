@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "http://localhost:3001/user";
+const baseUrl = "https://split-bills-2jjh.onrender.com/user";
 
 const addUser = async (user) => {
     try {

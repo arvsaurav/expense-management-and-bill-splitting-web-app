@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "http://localhost:3001/friend";
+const baseUrl = "https://split-bills-2jjh.onrender.com/friend";
 
 const createFriendList = async (list) => {
     try {

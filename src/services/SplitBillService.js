@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "http://localhost:3001/group-expense";
+const baseUrl = "https://split-bills-2jjh.onrender.com/group-expense";
 
 const createTransaction = async (transactionList) => {
     try {

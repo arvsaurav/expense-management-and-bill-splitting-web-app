@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "http://localhost:3001/personal-expense";
+const baseUrl = "https://split-bills-2jjh.onrender.com/personal-expense";
 
 const createExpenseList = async (list) => {
     try {
