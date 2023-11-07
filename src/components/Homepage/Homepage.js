@@ -3,8 +3,8 @@ import './Homepage.css';
 function Homepage() {
     return (
         <div className='homeDiv'>
-            <h2 className='homeH2'>Welcome to Split Bills.</h2>
-            <p className='homeP'>Here, you can manage your daily expense and split the bills among friends.</p>
+            <h1>Welcome to Split Bills.</h1>
+            <p>Here, you can manage your daily expense and split the bills among friends.</p>
         </div>
     );
 }

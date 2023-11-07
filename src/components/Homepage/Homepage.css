@@ -1,26 +1,19 @@
 .homeDiv {
-    background-color: #2774AE;
-    width: fit-content;
     margin: auto;
-    padding: 1%;
-    border-radius: 1rem;
-    opacity: 0.9;
+    width: fit-content;
+    min-width: 300px;
+    font-family: cursive;
+    padding: 2%;
     margin-top: 70px;
+    border-radius: 1rem;
+    color: white;
+    opacity: 0.9;
+    text-align: center;
+    background-color: #2774AE;
     box-shadow: 5px 5px 8px 12px #72A0C1;
 }
 
-.homeH2 {
-    color: aliceblue;
-    text-align: center;
-    font-size: 5vh;
-    font-family: cursive;
-    padding: 2% 2% 0% 2%;
-}
-
-.homeP {
-    color: aliceblue;
-    text-align: center;
-    font-size: 2.5vh;
-    font-family: cursive;
-    padding: 0% 1% 2% 1%;
+.homeDiv p {
+    margin-top: 30px;
+    font-size: 18px;
 }

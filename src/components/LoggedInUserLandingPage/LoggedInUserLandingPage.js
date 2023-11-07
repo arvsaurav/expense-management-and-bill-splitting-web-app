@@ -18,10 +18,10 @@ function LoggedInUserLandingPage({userState}) {
 
     return(
         <div className="container">
-            <h1>Welcome to Split Bills!</h1>
-            <h3 style={{fontWeight: '100'}}>Split Bills helps you manage expense and split bills with friends.</h3>
-            <button className="button" type="submit" onClick={addExpense}>Add Expense</button>
-            <button className="button" type="submit" onClick={addFriend}>Add Friend</button>
+            <h1>Welcome to Split Bills.</h1>
+            <p>Split Bills helps you manage expense and split bills with friends.</p>
+            <button className="landing-page-buttons" type="submit" onClick={addExpense}>Add Expense</button>
+            <button className="landing-page-buttons" type="submit" onClick={addFriend}>Add Friend</button>
         </div>
     );
 }

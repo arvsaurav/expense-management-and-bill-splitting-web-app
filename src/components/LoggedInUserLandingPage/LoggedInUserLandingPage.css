@@ -13,7 +13,12 @@
     box-shadow: 5px 5px 8px 12px #72A0C1;
 }
 
-.button {
+.container p {
+    margin-top: 30px;
+    font-size: 18px;
+}
+
+.landing-page-buttons {
     padding: 10px;
     margin: 15px 10px 15px 10px;
     width: 15vw;
@@ -22,6 +27,7 @@
     text-align: center;
 }
 
-.button:hover {
-    transform: scale(1.1);
+.landing-page-buttons:hover {
+    cursor: pointer;
+    transform: scale(1.05);
 }
