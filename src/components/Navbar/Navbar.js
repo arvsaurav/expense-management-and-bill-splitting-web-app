@@ -5,14 +5,14 @@ function Navbar() {
     return (
         <div>
             <ul className='navUl'>
-                <li className='navLi' style={{float: 'left'}}>
-                    <Link to='/'>Home</Link>
+                <li className='navLi' style={{float: 'left', marginLeft: '-10px'}}>
+                    <Link to='/'><p>Home</p></Link>
                 </li>
-                <li className='navLi' style={{marginRight: '1.5vw'}}>
-                    <Link to='/login'>Login</Link>
+                <li className='navLi' style={{marginRight: '30px'}}>
+                    <Link to='/login'><p>Login</p></Link>
                 </li>
                 <li className='navLi'>
-                    <Link to="/register">Register</Link>
+                    <Link to="/register"><p>Register</p></Link>
                 </li>
             </ul>
         </div>

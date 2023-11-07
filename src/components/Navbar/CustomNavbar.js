@@ -9,10 +9,10 @@ function CustomNavbar({userState}) {
     return (
         <div>
             <ul className='navUl'>
-                <li className='navFirstLi' style={{float: 'left'}}>
+                <li className='navFirstLi' style={{float: 'left', marginLeft: '-10px'}}>
                     <p> Hello, {firstName}! </p>
                 </li>
-                <li className='navLi' style={{marginLeft: '20px'}}>
+                <li className='navLi' style={{marginLeft: '20px', marginRight: '30px'}}>
                     <Link to='/logout'><p>Logout</p></Link>
                 </li>
                 <li className='navLi'>
