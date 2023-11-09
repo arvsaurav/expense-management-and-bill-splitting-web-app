@@ -64,7 +64,7 @@ function ShowSplittedBills({userState}) {
             const response = await SplitBillService.updateTransaction(id, {
                 transaction: transactionList
             });
-            response ? alert("Bill settled up.") : alert("Something went wrong.");
+            response ? alert("Marked as settled up expense.") : alert("Something went wrong.");
             setSettleUpBillStateToggle(prev => !prev);
         }
         catch {
@@ -114,7 +114,7 @@ function ShowSplittedBills({userState}) {
                                                         `${transaction.isSettledUp}` === 'true' && <button id="settled-button">Settled</button>
                                                     }
                                                     {
-                                                        `${transaction.isSettledUp}` === 'false' && <button id="settle-up-button" onClick={() => settleUpBill(profileCard.transactionId , index)}>Settle Up</button>
+                                                        `${transaction.isSettledUp}` === 'false' && <button id="settle-up-button" onClick={() => { window.confirm("Are you sure?") && settleUpBill(profileCard.transactionId , index)}}>Settle Up</button>
                                                     }
                                                 </div>
                                             </div>

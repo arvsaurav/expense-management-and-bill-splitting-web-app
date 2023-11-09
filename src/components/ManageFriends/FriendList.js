@@ -26,7 +26,7 @@ function FriendList({ userState, friendList, setFriendList, setFriendsCount }) {
             let id = friendsEmail.localeCompare(userState.email) === 1 ? friendsEmail+userState.email : userState.email+friendsEmail;
             const response3 = await SplitBillService.deleteTransaction(id);
 
-            response1 && response2 && response3 ? alert(`${friendsName} is removed from friend list. All the transactions between you and ${friendsName} is deleted.`) : alert("Something went wrong.");
+            response1 && response2 && response3 ? alert(`${friendsName} has been removed from the friend list. All the transactions between you and ${friendsName} is deleted.`) : alert("Something went wrong.");
         }
         catch {
             alert("Something went wrong.");
@@ -47,7 +47,7 @@ function FriendList({ userState, friendList, setFriendList, setFriendsCount }) {
                             <tr key={index}>
                                 <td>{friend.name} </td>
                                 <td>{friend.email}</td>
-                                <td><button className="remove-button" onClick={() => removeFriend(friend.name, friend.email)}>Remove</button></td>
+                                <td><button className="remove-button" onClick={() => { window.confirm(`All the transactions between you and ${friend.name} will be deleted. Do you still want to continue?`) && removeFriend(friend.name, friend.email)}}>Remove</button></td>
                             </tr>
                         );
                     })
