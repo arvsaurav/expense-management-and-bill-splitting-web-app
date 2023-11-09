@@ -13,7 +13,10 @@ function CustomNavbar({userState}) {
                     <p> Hello, {firstName}! </p>
                 </li>
                 <li className='navLi' style={{marginLeft: '20px', marginRight: '30px'}}>
-                    <Link to='/logout'><p>Logout</p></Link>
+                    <Link onClick={(event) => {
+                        !window.confirm("Are you sure you want to logout?") && event.preventDefault()
+                    }} 
+                        to='/logout'><p>Logout</p></Link>
                 </li>
                 <li className='navLi'>
                     <Link to='/expenses'><p>My Expense</p></Link>
