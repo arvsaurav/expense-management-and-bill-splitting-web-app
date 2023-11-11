@@ -4,11 +4,13 @@ import EmptyFriendList from "./EmptyFriendList";
 import FriendList from "./FriendList";
 import { useLocation, useNavigate } from "react-router";
 import "./ManageFriends.css";
+import Loader from '../Loader/Loader';
 
 function ManageFriends({userState}) {
 
     const [friendList, setFriendList] = useState([]);
     const [friendsCount, setFriendsCount] = useState(0);
+    const [isLoading, setIsLoading] = useState(true);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -16,6 +18,7 @@ function ManageFriends({userState}) {
         const getAllFriends = async () => {
             try {
                 const friendsArray = await FriendService.getFriendList(userState.email);
+                setIsLoading(false);
                 setFriendList(friendsArray);
                 setFriendsCount(friendsArray.length);
             }
@@ -31,7 +34,9 @@ function ManageFriends({userState}) {
             <h1>Manage Friends</h1>
             <div className="friendList">
                 {
-                    friendsCount !== 0 ? <FriendList userState={userState} friendList={friendList} setFriendList={setFriendList} setFriendsCount={setFriendsCount} /> : <EmptyFriendList/>
+                    isLoading ? <Loader /> : 
+                        friendsCount === 0 ? <EmptyFriendList /> :
+                            <FriendList userState={userState} friendList={friendList} setFriendList={setFriendList} setFriendsCount={setFriendsCount} /> 
                 }
             </div>
             <div>

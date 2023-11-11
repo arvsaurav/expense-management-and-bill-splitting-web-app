@@ -5,12 +5,15 @@ import UserService from '../../services/UserService';
 import FriendService from '../../services/FriendService';
 import PersonalExpenseService from '../../services/PersonalExpenseService';
 import CryptoJS from 'crypto-js';
+import Loader from '../Loader/Loader';
 
 function Register() {
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
+    const [messageColor, setMessageColor] = useState('#800000');
     const navigate = useNavigate();
 
     const encryptPassword = () => {
@@ -47,8 +50,11 @@ function Register() {
                 others: []
             });
             if(response1 && response2 && response3) {
-                alert("User registration successful.");
-                navigate('../login');
+                setMessageColor('#004526');
+                document.getElementById('user-registration-message').innerHTML = "User registration successful. You will be redirected to login page in 5 seconds...";
+                setTimeout(() => {
+                    navigate('../login');
+                }, 5000);
             }
             else {
                 alert("User registration failed.");
@@ -68,8 +74,10 @@ function Register() {
     const checkExistenceAndRegisterUser = async (event) => {
         try {
             event.preventDefault();
+            setIsLoading(true);
             const doesUserAlreadyExists = await UserService.checkUserExistence(email);
-            !doesUserAlreadyExists ? await registerUser() : alert("User already exists. Try using different email.");
+            !doesUserAlreadyExists ? await registerUser() : document.getElementById('user-registration-message').innerHTML = "User already exists. Try using different email.";
+            setIsLoading(false);
             resetForm();
         }
         catch {
@@ -98,8 +106,16 @@ function Register() {
                     <br/>
                     <input name='password' type='password' placeholder='Enter your password' required value={password} onChange={(event) => {setPassword(event.target.value)}}/>
                 </label>
-                <br/>
-                <input id='button' name='submit' type='submit' value='Register'/>
+                <div id='user-registration-message' style={{color: `${messageColor}`, width: 'fit-content', textAlign: 'left' ,maxWidth: '30vw'}} />
+                {
+                    !isLoading && <input id='button' name='submit' type='submit' value='Register'/>
+                }
+                {
+                    isLoading && <input id='button' name='submit' type='submit' value='Register' style={{pointerEvents: 'none', opacity: '0.8'}} />
+                }
+                {
+                    isLoading && <Loader />
+                }
             </form>
         </div>
     );

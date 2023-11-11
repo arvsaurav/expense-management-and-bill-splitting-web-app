@@ -4,6 +4,7 @@ import "./AddFriend.css";
 import FriendService from "../../services/FriendService";
 import UserService from "../../services/UserService";
 import SplitBillService from "../../services/SplitBillService";
+import Loader from "../Loader/Loader";
 
 function AddFriend() {
 
@@ -14,6 +15,8 @@ function AddFriend() {
     const userState = location.state.userState;
     const [friendsName, setFriendsName] = useState('');
     const [friendsEmail, setFriendsEmail] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
+    const [messageColor, setMessageColor] = useState('#800000');
 
     const checkFriendship = async () => {
         try {
@@ -35,12 +38,12 @@ function AddFriend() {
     const addFriend = async () => {
         try {
             if(userState.email === friendsEmail) {
-                alert("Can't add yourself as a friend.");
+                document.getElementById('add-friend-message').innerHTML = "Can't add yourself as a friend.";
                 return;
             }
             const doesUserAlreadyAddedAsFriend = await checkFriendship();
             if(doesUserAlreadyAddedAsFriend) {
-                alert("User already added as a friend.");
+                document.getElementById('add-friend-message').innerHTML = "User already added as a friend.";
                 return;
             }
             // adding friend for loggedIn user
@@ -73,8 +76,11 @@ function AddFriend() {
             });
 
             if(response1 && response2 && response3) {
-                alert('Friend added.');
-                navigate('../friends');
+                setMessageColor('#004526');
+                document.getElementById('add-friend-message').innerHTML = "Friend added. You will be redirected to friend list in 5 seconds...";
+                setTimeout(() => {
+                    navigate('../friends');
+                }, 5000);
             }
             else {
                 alert('Something went wrong.');
@@ -93,8 +99,10 @@ function AddFriend() {
     const validateUserAndAddAsFriend = async (event) => {
         try {
             event.preventDefault();
+            setIsLoading(true);
             const doesUserExists = await UserService.checkUserExistence(friendsEmail);
-            doesUserExists ? await addFriend() : alert("User doesn't exists. Ask your friend to register first.");
+            doesUserExists ? await addFriend() : document.getElementById('add-friend-message').innerHTML = "User doesn't exists. Ask your friend to register first.";
+            setIsLoading(false);
             resetForm();
         }
         catch {
@@ -121,9 +129,22 @@ function AddFriend() {
                     <br/>
                     <input name="email" type="email" placeholder="Enter your friend's email" required value={friendsEmail} onChange={(event) => {setFriendsEmail(event.target.value)}} />
                 </label>
-                <br/>
-                <input className="button" name="submit" type="submit" value="Add" />
-                <input className="button" type="button" value="Cancel" onClick={returnToPreviousPage} />
+                <div id='add-friend-message' style={{color: `${messageColor}`, width: 'fit-content', maxWidth: '30vw', textAlign: 'left', paddingLeft: '2%'}}></div>
+                {
+                    isLoading && <input className="button" name="submit" type="submit" value="Add" style={{pointerEvents: 'none', opacity: '0.8'}} />
+                }
+                {
+                    isLoading && <input className="button" type="button" value="Cancel" style={{pointerEvents: 'none', opacity: '0.8'}} />
+                }
+                {
+                    isLoading && <Loader />
+                }
+                {
+                    !isLoading && <input className="button" name="submit" type="submit" value="Add" />
+                }
+                {
+                    !isLoading && <input className="button" type="button" value="Cancel" onClick={returnToPreviousPage} />
+                }
             </form>
         </div>
     );

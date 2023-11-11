@@ -3,11 +3,13 @@ import './Login.css';
 import { useNavigate } from 'react-router-dom';
 import UserService from '../../services/UserService';
 import CryptoJS from 'crypto-js';
+import Loader from '../Loader/Loader';
 
 function Login({setUserState}) {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
 
     const decryptPassword = (fetchedPassword) => {
@@ -30,7 +32,7 @@ function Login({setUserState}) {
                 navigate('/landingpage');
             }
             else {
-                alert("Invalid credentials.");
+                document.getElementById('invalid-credentials').innerHTML = "Invalid credentials.";
             }
         }
         catch {
@@ -46,8 +48,10 @@ function Login({setUserState}) {
     const validateCredentialsAndLoginUser = async (event) => {
         try {
             event.preventDefault();
+            setIsLoading(true);
             const doesUserExists = await UserService.checkUserExistence(email);
-            doesUserExists ? await validateAndLogin() : alert("Invalid credentials.");
+            doesUserExists ? await validateAndLogin() : document.getElementById('invalid-credentials').innerHTML = "Invalid credentials.";
+            setIsLoading(false);
             resetForm();
         }
         catch {
@@ -55,7 +59,7 @@ function Login({setUserState}) {
         }
     }
 
-    return (
+    return (        
         <div className='loginDiv'>
             <h2>Login</h2>
             <form className='loginForm' onSubmit={validateCredentialsAndLoginUser}>
@@ -70,8 +74,16 @@ function Login({setUserState}) {
                     <br/>
                     <input name='password' type='password' placeholder='Enter your password' required value={password} onChange={(event) => {setPassword(event.target.value)}}/>
                 </label>
-                <br/>
-                <input id='button' name='submit' type='submit' value='Login' />
+                <div id='invalid-credentials' style={{color: '#800000', width: 'fit-content'}}></div>
+                {
+                    !isLoading && <input id='button' name='submit' type='submit' value='Login' />
+                }
+                {
+                    isLoading && <input id='button' name='submit' type='submit' value='Login' style={{pointerEvents: 'none', opacity: '0.8'}} />
+                }
+                {
+                    isLoading && <Loader />
+                }
             </form>
         </div>
     );

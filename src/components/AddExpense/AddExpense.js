@@ -3,6 +3,7 @@ import Calendar from "react-calendar";
 import { useLocation, useNavigate } from "react-router";
 import PersonalExpenseService from "../../services/PersonalExpenseService";
 import "./AddExpense.css";
+import Loader from "../Loader/Loader";
 
 function AddExpense() {
 
@@ -19,6 +20,11 @@ function AddExpense() {
     const [calendarButtonText, setCalendarButtonText] = useState('Show Calendar');
     const [calendarVisibility, setCalendarVisibility] = useState('hidden');
     const [displayType, setDisplayType] = useState('none');
+    const [isLoadingObject, setIsLoadingObject] = useState({
+        isLoading: false,
+        pointerEvent: 'auto',
+        opacity: '1'
+    });
     const navigate = useNavigate();
     const location = useLocation();
     const userState = location.state.userState;
@@ -47,6 +53,11 @@ function AddExpense() {
 
     const addPersonalExpense = async () => {
         try {
+            setIsLoadingObject({
+                isLoading: true,
+                pointerEvent: 'none',
+                opacity: '0.8'
+            });
             const getAllExpenseOfCurrentExpenseType = await PersonalExpenseService.getExpenseByExpenseType(userState.email, expenseType);
             // check whether any expense already added on same date
             // if yes, sum both amounts
@@ -69,8 +80,12 @@ function AddExpense() {
                 [expenseType]: updatedExpenseListOfCurrentExpenseType
             });
             if(doesExpenseListUpdatedSuccessfully) {
-                alert("Expense added.")
-                if(window.confirm("Do you want to navigate to manage expense page?")) {
+                setIsLoadingObject({
+                    isLoading: false,
+                    pointerEvent: 'auto',
+                    opacity: '1'
+                });
+                if(window.confirm("Expense added. Do you want to navigate to manage expense page?")) {
                     navigate('/expenses');
                 }
             }
@@ -100,7 +115,12 @@ function AddExpense() {
     const addExpense = async (event) => {
         try {
             event.preventDefault();
-            isPersonalExpense ? await addPersonalExpense() : await addGroupExpense();
+            if(isPersonalExpense) {
+                await addPersonalExpense();
+            }
+            else {
+                await addGroupExpense();
+            }
             resetForm();
         }
         catch {
@@ -164,11 +184,14 @@ function AddExpense() {
                     </div>
                 </div>
                 <div>
-                    <input id="expense-submit-button" name="expense" type="submit" value="Add As Personal Expense" onClick={() => setIsPersonalExpense(true)} />
-                    <input id="expense-submit-button" name="expense" type="submit" value="Split With Friends" onClick={() => setIsPersonalExpense(false)} />
+                    <input id="expense-submit-button" style={{pointerEvents: `${isLoadingObject.pointerEvent}`, opacity: `${isLoadingObject.opacity}`}} name="expense" type="submit" value="Add As Personal Expense" onClick={() => setIsPersonalExpense(true)} />
+                    <input id="expense-submit-button" style={{pointerEvents: `${isLoadingObject.pointerEvent}`, opacity: `${isLoadingObject.opacity}`}} name="expense" type="submit" value="Split With Friends" onClick={() => setIsPersonalExpense(false)} />
                 </div>
-                <input id="cancel-button" style={{margin: 'auto'}} type="button" value="Cancel" onClick={returnToPreviousPage} />
+                <input id="cancel-button" style={{margin: 'auto', pointerEvents: `${isLoadingObject.pointerEvent}`, opacity: `${isLoadingObject.opacity}`}} type="button" value="Cancel" onClick={returnToPreviousPage} />
             </form>
+            {
+                isLoadingObject.isLoading && <Loader />
+            }     
         </div>
     );
 }

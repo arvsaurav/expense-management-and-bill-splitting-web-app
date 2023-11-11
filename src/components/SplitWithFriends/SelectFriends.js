@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import "./SelectFriends.css";
 import SplitBillService from "../../services/SplitBillService";
 import PersonalExpenseService from "../../services/PersonalExpenseService";
+import Loader from "../Loader/Loader";
 
 function SelectFriends() {
 
@@ -11,6 +12,13 @@ function SelectFriends() {
     const [friendsCount, setFriendsCount] = useState(0);
     // store email of selected friends
     const [selectedFriends, setSelectedFriends] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [splitBillLoadingObject, setsplitBillLoadingObject] = useState({
+        isLoading: false,
+        pointerEvent: 'auto',
+        opacity: '1'
+    });
+    const [messageColor, setMessageColor] = useState('#800000');
     const location = useLocation();
     const navigate = useNavigate();
     const userState = location.state.userState;
@@ -19,6 +27,7 @@ function SelectFriends() {
         const getAllFriends = async () => {
             try {
                 const friendsArray = await FriendService.getFriendList(userState.email);
+                setIsLoading(false);
                 setFriendList(friendsArray);
                 setFriendsCount(friendsArray.length);
             }
@@ -45,9 +54,14 @@ function SelectFriends() {
     const splitBill = async () => {
         try {
             if(selectedFriends.length === 0) {
-                alert("Please select atleast one friend.");
+                document.getElementById('split-bill-message').innerHTML = "Please select atleast one friend.";
                 return;
             }
+            setsplitBillLoadingObject({
+                isLoading: true,
+                pointerEvent: 'none',
+                opacity: '0.8'
+            });
             selectedFriends.forEach(async (friendsEmail) => {
                 let id = friendsEmail.localeCompare(userState.email) === 1 ? friendsEmail+userState.email : userState.email+friendsEmail;
                 const allTransactionOfCurrentFriend = await SplitBillService.getTransactionById(id); 
@@ -90,8 +104,16 @@ function SelectFriends() {
                 [location.state.expenseType]: updatedExpenseListOfCurrentExpenseType
             });
             if(doesExpenseListUpdatedSuccessfully) {
-                alert("Bill splitted successfully.");
-                navigate('/expenses');
+                setsplitBillLoadingObject({
+                    isLoading: false,
+                    pointerEvent: 'none',
+                    opacity: '0.8'
+                });
+                setMessageColor('#004526');
+                document.getElementById('split-bill-message').innerHTML = "Bill splitted successfully. You will be redirected to manage expense page in 5 seconds...";
+                setTimeout(() => {
+                    navigate('/expenses');
+                }, 5000);
             }
             else {
                 alert("Something went wrong.");
@@ -107,46 +129,43 @@ function SelectFriends() {
             <h1>Select Friends</h1>
             <div className="friendlist">
                 {
-                    friendsCount !== 0 && 
-                    <table>
-                    <tbody>
-                        <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Select</th>
-                        </tr>
-                        {
-                            friendList.map((friend, index) => {
-                                return (
-                                    <tr key={index}>
-                                        <td>{friend.name} </td>
-                                        <td>{friend.email}</td>
-                                        <td><input type="checkbox" id={friend.email} className="friend-selection-checkbox" name="friends" onChange={() => {selectFriend(friend.email)}} /></td>
-                                    </tr>
-                                );
-                            })
-                        }
-                    </tbody>
-                    </table>
-                }
-                {
-                    friendsCount === 0 &&
-                        <div>
-                            {
-                                <div> No friends to show. </div>
-                            }
-                        </div>
+                    isLoading ? <Loader /> : 
+                        friendsCount === 0 ? <div> No friends to show. </div> :
+                            <table>
+                            <tbody>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Select</th>
+                                </tr>
+                                {
+                                    friendList.map((friend, index) => {
+                                        return (
+                                            <tr key={index}>
+                                                <td>{friend.name} </td>
+                                                <td>{friend.email}</td>
+                                                <td><input type="checkbox" style={{pointerEvents: `${splitBillLoadingObject.pointerEvent}`, opacity: `${splitBillLoadingObject.opacity}`}} id={friend.email} className="friend-selection-checkbox" name="friends" onChange={() => {selectFriend(friend.email)}} /></td>
+                                            </tr>
+                                        );
+                                    })
+                                }
+                            </tbody>
+                            </table>
                 }
             </div>
             <div>
-                <button className="button" onClick={() => splitBill()}>
+                <button className="button" style={{pointerEvents: `${splitBillLoadingObject.pointerEvent}`, opacity: `${splitBillLoadingObject.opacity}`}} onClick={() => splitBill()}>
                     Split
                 </button>
-                <button className="button" onClick={() => navigate('../addexpense', {state: {userState: userState, redirectedFrom: location.state.redirectedFrom}})}>
+                <button className="button" style={{pointerEvents: `${splitBillLoadingObject.pointerEvent}`, opacity: `${splitBillLoadingObject.opacity}`}} onClick={() => navigate('../addexpense', {state: {userState: userState, redirectedFrom: location.state.redirectedFrom}})}>
                     Back
                 </button>
             </div>
-        </div>
+            {
+                splitBillLoadingObject.isLoading && <Loader />
+            }
+            <div id='split-bill-message' style={{color: `${messageColor}`, width: 'fit-content', textAlign: 'left', maxWidth: '30vw'}} />
+        </div>    
     );
 }
 
